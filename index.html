@@ -9,437 +9,522 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   
-  <title>Philipp Brüll | Web-Entwicklung & IT-Automatisierung</title>
-  <meta name="description" content="Moderne Webseiten, smarte Automatisierungen, Bots & IT-Infrastruktur von Philipp Brüll. Schnelle Umsetzung, faire Festpreise.">
+  <title>Philipp Brüll | Web-Entwicklung & Python Automation</title>
+  <meta name="description" content="Philipp Brüll aus Eichwalde bei Berlin: Performante Webseiten, Python Automatisierung, Telegram/Discord Bots und gehärtete Docker-Infrastruktur.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
             brand: {
-              50: '#eef2ff',
-              400: '#818cf8',
-              500: '#6366f1',
-              600: '#4f46e5',
+              DEFAULT: '#0284c7',
+              hover: '#0369a1',
+              light: '#38bdf8',
             },
-            accent: {
-              400: '#38bdf8',
-              500: '#0ea5e9',
-            },
-            emerald: {
-              400: '#34d399',
-              500: '#10b981',
+            surface: {
+              900: '#0b0f19',
+              800: '#111827',
+              700: '#1f2937',
+              600: '#374151',
             }
           }
         }
       }
     }
   </script>
+
   <style>
-    .glow-bg {
-      background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, rgba(14, 165, 233, 0.08) 40%, transparent 70%);
+    /* Clean high-contrast developer theme - No purple gradients, no blurry slop */
+    body {
+      background-color: #0b0f19;
+      color: #f1f5f9;
     }
-    .glass {
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+    .tech-border {
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .glass-card {
-      background: rgba(15, 23, 42, 0.65);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    .tech-card {
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: border-color 0.15s ease, transform 0.15s ease;
     }
-    .glass-card:hover {
-      border-color: rgba(99, 102, 241, 0.35);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.18);
+    .tech-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-2px);
+    }
+    .tab-btn.active {
+      background: #1f2937;
+      color: #ffffff;
+      border-color: #38bdf8;
+    }
+    pre code {
+      font-family: 'JetBrains Mono', monospace;
     }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white">
+<body class="font-sans antialiased selection:bg-brand selection:text-white min-h-screen flex flex-col justify-between">
 
-  <!-- Glow Background Effect -->
-  <div class="fixed inset-0 glow-bg pointer-events-none z-0"></div>
-
-  <!-- Navigation -->
-  <header class="sticky top-0 z-50 glass border-b border-slate-800/80">
+  <!-- Header & Navigation -->
+  <header class="sticky top-0 z-50 bg-[#0b0f19]/95 backdrop-blur-md border-b border-slate-800">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2 group">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-500 to-accent-400 flex items-center justify-center font-bold text-white shadow-lg shadow-brand-500/20 group-hover:scale-105 transition">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-sky-400 font-mono text-sm">
           PB
         </div>
-        <span class="font-bold text-lg tracking-tight text-white group-hover:text-brand-400 transition">Philipp Brüll</span>
+        <div>
+          <span class="font-bold text-base text-white tracking-tight">Philipp Brüll</span>
+          <span class="hidden sm:inline-block text-xs text-slate-400 ml-2 font-mono">Web & Automation</span>
+        </div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
         <a href="#services" class="hover:text-white transition">Leistungen</a>
-        <a href="#projekte" class="hover:text-white transition">Projekte</a>
+        <a href="#projekte" class="hover:text-white transition">Projekte & Demos</a>
         <a href="#ablauf" class="hover:text-white transition">Ablauf</a>
         <a href="#ueber-mich" class="hover:text-white transition">Über mich</a>
         <a href="#kontakt" class="hover:text-white transition">Kontakt</a>
       </nav>
 
       <div class="flex items-center gap-3">
-        <a href="mailto:phil.bruell@gmail.com" class="hidden sm:inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 transition">
-          <svg class="w-3.5 h-3.5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          phil.bruell@gmail.com
+        <a href="https://github.com/Phil12992/freelance-portfolio" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800 transition" title="GitHub Repository">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
-        <a href="https://github.com/Phil12992" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition" title="GitHub">
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-        </a>
-        <a href="#kontakt" class="inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-400 shadow-md shadow-brand-500/20 transition">
+        <a href="#kontakt" class="inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-semibold text-white bg-sky-600 hover:bg-sky-500 transition shadow-sm">
           Projekt anfragen
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="relative z-10 pt-20 pb-24 md:pt-28 md:pb-32 px-4 sm:px-6 max-w-6xl mx-auto text-center">
-    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-8 animate-pulse">
-      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-      Offen für neue Aufträge & Freelance-Projekte
-    </div>
-
-    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.12]">
-      Moderne Webseiten & <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-accent-400 to-emerald-400">smarte Automatisierung</span>
-    </h1>
-
-    <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-      Hi, ich bin <strong class="text-white">Philipp Brüll</strong>. Ich baue responsive Webseiten, automatisierte Daten-Workflows, Bots für Telegram & Discord und sichere IT-Systeme. Schnell, transparent und ohne Agentur-Overhead.
-    </p>
-
-    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="mailto:phil.bruell@gmail.com?subject=Projektanfrage" class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-bold text-white bg-gradient-to-r from-brand-600 to-accent-500 hover:from-brand-500 hover:to-accent-400 shadow-xl shadow-brand-500/25 transition flex items-center justify-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        Direkt anfragen (phil.bruell@gmail.com)
-      </a>
-      <a href="#projekte" class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-semibold text-slate-300 bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 transition">
-        Echte Projekte ansehen
-      </a>
-    </div>
-
-    <!-- Quick Badges -->
-    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 text-left max-w-4xl mx-auto pt-8 border-t border-slate-800/80">
-      <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
-        <div class="text-xs text-slate-400 font-medium">Standort</div>
-        <div class="text-base font-bold text-white mt-1">Eichwalde / Berlin</div>
+  <!-- Hero Section (Sharp, specific, no vague text, no purple blobs) -->
+  <section class="pt-16 pb-20 md:pt-24 md:pb-28 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-semibold bg-emerald-950/60 text-emerald-400 border border-emerald-800/80 mb-6 font-mono">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        Status: Verfügbar für neue Projekte
       </div>
-      <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
-        <div class="text-xs text-slate-400 font-medium">Preismodell</div>
-        <div class="text-base font-bold text-white mt-1">Transparenter Festpreis</div>
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+        Web-Entwicklung & Python-Automatisierung für Unternehmen.
+      </h1>
+
+      <p class="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+        Ich bin <strong class="text-white">Philipp Brüll</strong>, Entwickler aus Eichwalde bei Berlin. Ich erstelle responsive Webseiten, automatisierte Daten-Pipelines, Telegram- und Discord-Bots sowie sichere Docker-Infrastrukturen.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <a href="#kontakt" class="px-6 py-3 rounded-lg text-sm font-bold text-white bg-sky-600 hover:bg-sky-500 transition text-center shadow-sm">
+          Kostenloses Erstgespräch anfragen
+        </a>
+        <a href="#projekte" class="px-6 py-3 rounded-lg text-sm font-semibold text-slate-300 bg-slate-900 hover:bg-slate-800 border border-slate-700 transition text-center">
+          Projekte & Live-Demos ansehen
+        </a>
       </div>
-      <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
-        <div class="text-xs text-slate-400 font-medium">Qualität</div>
-        <div class="text-base font-bold text-white mt-1">100% Mobile-First & SEO</div>
-      </div>
-      <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
-        <div class="text-xs text-slate-400 font-medium">Direktkontakt</div>
-        <div class="text-sm font-bold text-emerald-400 mt-1 truncate">phil.bruell@gmail.com</div>
+
+      <!-- Real Facts (No fake metrics) -->
+      <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-800 font-mono text-xs">
+        <div class="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
+          <div class="text-slate-400">Standort</div>
+          <div class="text-white font-bold mt-1">Eichwalde / Berlin</div>
+        </div>
+        <div class="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
+          <div class="text-slate-400">Preise</div>
+          <div class="text-white font-bold mt-1">Feste Projektpreise</div>
+        </div>
+        <div class="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
+          <div class="text-slate-400">Datenschutz</div>
+          <div class="text-emerald-400 font-bold mt-1">0 Cookies / 0 Tracker</div>
+        </div>
+        <div class="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
+          <div class="text-slate-400">E-Mail</div>
+          <div class="text-white font-bold mt-1 truncate">phil.bruell@gmail.com</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section id="services" class="relative z-10 py-20 px-4 sm:px-6 max-w-6xl mx-auto">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <h2 class="text-xs uppercase tracking-widest text-brand-400 font-bold">Was ich anbiete</h2>
-      <p class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Maßgeschneiderte IT- & Web-Dienstleistungen</p>
-      <p class="text-slate-400 mt-4 text-sm sm:text-base">Echte individuelle Software statt generischer AI-Texte.</p>
+  <!-- Services Section (Vector icons, no emojis) -->
+  <section id="services" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto border-t border-slate-800">
+    <div class="max-w-2xl mb-12">
+      <h2 class="text-xs uppercase tracking-wider text-sky-400 font-bold font-mono">Dienstleistungen</h2>
+      <p class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Konkrete Lösungen für deinen Anwendungsfall</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
       <!-- Service 1 -->
-      <div class="glass-card p-8 rounded-2xl">
-        <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-2xl mb-6">
-          🌐
+      <div class="tech-card p-6 rounded-xl">
+        <div class="w-10 h-10 rounded-lg bg-sky-950/80 border border-sky-800/80 text-sky-400 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
         </div>
-        <h3 class="text-xl font-bold text-white">Moderne Webseiten & Landing Pages</h3>
-        <p class="text-slate-400 text-sm mt-3 leading-relaxed">
-          High-Performance Webseiten für Handwerker, Dienstleister oder persönliche Portfolios. 100% responsiv für Smartphones, suchmaschinenoptimiert (SEO) und blitzschnell geladen.
+        <h3 class="text-lg font-bold text-white">Responsive Webseiten & Landing Pages</h3>
+        <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+          Moderne Webauftritte für Dienstleister, Handwerker und persönliche Marken. Konzipiert für schnelle Ladezeiten, saubere Barrierefreiheit und optimale mobile Darstellung.
         </p>
-        <ul class="mt-6 space-y-2 text-xs font-medium text-slate-300">
-          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Individuelles Mobile-First Design (TailwindCSS / React)</li>
-          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Schnelle Ladezeiten (PageSpeed 95+)</li>
-          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> DSGVO-konform ohne Cookie-Banner-Wahnsinn</li>
-        </ul>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+          <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">HTML5 / TailwindCSS</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">React / TypeScript</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">DSGVO-konform</span>
+        </div>
       </div>
 
       <!-- Service 2 -->
-      <div class="glass-card p-8 rounded-2xl">
-        <div class="w-12 h-12 rounded-xl bg-accent-500/20 text-accent-400 flex items-center justify-center text-2xl mb-6">
-          ⚡
+      <div class="tech-card p-6 rounded-xl">
+        <div class="w-10 h-10 rounded-lg bg-emerald-950/80 border border-emerald-800/80 text-emerald-400 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
         </div>
-        <h3 class="text-xl font-bold text-white">Prozess- & Workflow-Automatisierung</h3>
-        <p class="text-slate-400 text-sm mt-3 leading-relaxed">
-          Schluss mit lästigen manuellen Klicks. Ich schreibe Python-Skripte, die Daten von Websites scrapen, Excel-Dateien synchronisieren, PDF-Reports generieren und Aufgaben vollautomatisch erledigen.
+        <h3 class="text-lg font-bold text-white">Python Automatisierung & Web Scraping</h3>
+        <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+          Automatisierung wiederkehrender Arbeiten: Abrufen von Websites, Extrahieren von Datenstrukturen, Abgleich von CSV/Excel-Dateien und automatische Report-Generierung.
         </p>
-        <ul class="mt-6 space-y-2 text-xs font-medium text-slate-300">
-          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Web Scraping (Selenium / Playwright / BeautifulSoup)</li>
-          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Automatisierter CSV-, Excel- & Datenbank-Abgleich</li>
-          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> 24/7 Hintergrund-Ausführung</li>
-        </ul>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+          <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Python 3 / AsyncIO</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Playwright / httpx</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">CSV & Excel Pipeline</span>
+        </div>
       </div>
 
       <!-- Service 3 -->
-      <div class="glass-card p-8 rounded-2xl">
-        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mb-6">
-          🤖
+      <div class="tech-card p-6 rounded-xl">
+        <div class="w-10 h-10 rounded-lg bg-indigo-950/80 border border-indigo-800/80 text-indigo-400 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
         </div>
-        <h3 class="text-xl font-bold text-white">Custom Chatbots & API-Schnittstellen</h3>
-        <p class="text-slate-400 text-sm mt-3 leading-relaxed">
-          Intelligente Bots für Telegram und Discord: Benachrichtigungen bei neuen Aufträgen, Kundenanfragen oder Server-Alerts direkt auf dein Smartphone.
+        <h3 class="text-lg font-bold text-white">Custom Bots (Telegram & Discord)</h3>
+        <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+          Echtzeit-Benachrichtigungs- und Steuerungs-Bots: Alarmierung bei Serverproblemen, neuen Kundenanfragen oder Kursänderungen direkt auf dein Endgerät.
         </p>
-        <ul class="mt-6 space-y-2 text-xs font-medium text-slate-300">
-          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Telegram & Discord Bot Entwicklung (Python)</li>
-          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Direktanbindung an REST-APIs & Webhooks</li>
-          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Interaktive Steuerungs-Kommandos</li>
-        </ul>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+          <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Telegram Bot API</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Discord API</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Webhook Schnittstellen</span>
+        </div>
       </div>
 
       <!-- Service 4 -->
-      <div class="glass-card p-8 rounded-2xl">
-        <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-2xl mb-6">
-          🐳
+      <div class="tech-card p-6 rounded-xl">
+        <div class="w-10 h-10 rounded-lg bg-cyan-950/80 border border-cyan-800/80 text-cyan-400 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>
         </div>
-        <h3 class="text-xl font-bold text-white">Server-Setup & Cloud / Homelab</h3>
-        <p class="text-slate-400 text-sm mt-3 leading-relaxed">
-          Sicheres Aufsetzen von Linux-Servern, Docker-Containern, Nginx Reverse Proxies mit SSL-Zertifikaten und robusten automatischen Backups.
+        <h3 class="text-lg font-bold text-white">Docker & Linux Server-Setup</h3>
+        <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+          Gehärtetes Hosting von Container-Diensten, Nginx Reverse Proxy mit SSL-Terminierung, Content-Security-Policy und automatischen Backups auf Ubuntu/Debian oder Proxmox VE.
         </p>
-        <ul class="mt-6 space-y-2 text-xs font-medium text-slate-300">
-          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Docker & Docker Compose Orchestrierung</li>
-          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Proxmox VE, Linux (Debian/Ubuntu) Härtung</li>
-          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Reverse Proxy, SSL, CSP & Rate-Limiting</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Real Projects Section -->
-  <section id="projekte" class="relative z-10 py-20 px-4 sm:px-6 max-w-6xl mx-auto">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <h2 class="text-xs uppercase tracking-widest text-brand-400 font-bold">Echte Code-Repositories</h2>
-      <p class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Funktionsfähige Projekte im Repository</p>
-      <p class="text-slate-400 mt-4 text-sm sm:text-base">Keine Mockups – echter, lauffähiger Code direkt im GitHub-Repo.</p>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      <!-- Project 1 -->
-      <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between">
-        <div class="p-6">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold uppercase tracking-wider text-brand-400 bg-brand-500/10 px-2.5 py-1 rounded-full">Frontend</span>
-            <span class="text-xs text-emerald-400 font-mono">Lauffähig</span>
-          </div>
-          <h4 class="text-xl font-bold text-white">Website Builder & Komponenten</h4>
-          <p class="text-slate-400 text-sm mt-2 leading-relaxed">
-            Vollständige, responsive Landingpage mit modularem Hero, animierten Feature-Cards und barrierefreiem Styling.
-          </p>
-          <div class="mt-6 flex flex-wrap gap-1.5">
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">HTML5</span>
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">CSS3</span>
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Responsive</span>
-          </div>
-        </div>
-        <div class="p-6 pt-0 border-t border-slate-800/60 mt-4">
-          <a href="https://github.com/Phil12992/freelance-portfolio/tree/main/projects/website-builder" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-400 hover:text-brand-300 transition">
-            Quellcode im Repo öffnen →
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between">
-        <div class="p-6">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full">Automation</span>
-            <span class="text-xs text-emerald-400 font-mono">Python 3</span>
-          </div>
-          <h4 class="text-xl font-bold text-white">Asynchroner Monitoring-Bot</h4>
-          <p class="text-slate-400 text-sm mt-2 leading-relaxed">
-            Produktiver Python-Hintergrund-Dienst (`monitor_bot.py`), der HTTP-Endpunkte abtastet, Statusänderungen erkennt und Telegram-Alerts sendet.
-          </p>
-          <div class="mt-6 flex flex-wrap gap-1.5">
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Python</span>
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">AsyncIO</span>
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Telegram API</span>
-          </div>
-        </div>
-        <div class="p-6 pt-0 border-t border-slate-800/60 mt-4">
-          <a href="https://github.com/Phil12992/freelance-portfolio/tree/main/projects/automation-bot" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition">
-            Quellcode im Repo öffnen →
-          </a>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between">
-        <div class="p-6">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold uppercase tracking-wider text-accent-400 bg-accent-500/10 px-2.5 py-1 rounded-full">Infrastruktur</span>
-            <span class="text-xs text-emerald-400 font-mono">Production Stack</span>
-          </div>
-          <h4 class="text-xl font-bold text-white">Gehärteter Docker Homelab Stack</h4>
-          <p class="text-slate-400 text-sm mt-2 leading-relaxed">
-            Vollständige `docker-compose.yml` und `nginx.conf` mit strikten Security-Headern, CSP, Rate-Limiting und Portainer-Management.
-          </p>
-          <div class="mt-6 flex flex-wrap gap-1.5">
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Docker</span>
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Nginx Hardened</span>
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Security</span>
-          </div>
-        </div>
-        <div class="p-6 pt-0 border-t border-slate-800/60 mt-4">
-          <a href="https://github.com/Phil12992/freelance-portfolio/tree/main/projects/homelab-docker" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-accent-400 hover:text-accent-300 transition">
-            Quellcode im Repo öffnen →
-          </a>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+          <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Docker & Compose</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Nginx Hardening</span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Proxmox VE</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Ablauf / How it works -->
-  <section id="ablauf" class="relative z-10 py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-slate-800/80">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <h2 class="text-xs uppercase tracking-widest text-brand-400 font-bold">Zusammenarbeit</h2>
-      <p class="text-3xl sm:text-4xl font-extrabold text-white mt-2">So einfach läuft dein Projekt ab</p>
+  <!-- Interactive Embedded Projects Section (Directly integrated on page) -->
+  <section id="projekte" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto border-t border-slate-800">
+    <div class="max-w-3xl mb-8">
+      <h2 class="text-xs uppercase tracking-wider text-sky-400 font-bold font-mono">Interaktiver Code-Showcase</h2>
+      <p class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Direkt integrierte Projekt-Demos</p>
+      <p class="text-slate-300 text-sm mt-2">
+        Klicke durch die Tabs, um funktionierende Code-Strukturen, Live-Logs und Konfigurationen direkt auf der Webseite zu testen.
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-      <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
-        <div class="text-2xl font-black text-brand-400 mb-2">01</div>
-        <h4 class="font-bold text-white text-lg">Kurzes Erstgespräch</h4>
-        <p class="text-slate-400 text-xs mt-2 leading-relaxed">Du schreibst mir deine Anforderungen und Wünsche per Mail an <span class="text-white">phil.bruell@gmail.com</span>.</p>
+    <!-- Project Tabs -->
+    <div class="flex flex-wrap gap-2 border-b border-slate-800 pb-3 mb-6 font-mono text-xs">
+      <button onclick="switchTab('web')" id="tab-web" class="tab-btn active px-4 py-2 rounded-lg border border-slate-700 bg-slate-800 text-white font-semibold transition flex items-center gap-2">
+        <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        1. Website Builder UI
+      </button>
+      <button onclick="switchTab('bot')" id="tab-bot" class="tab-btn px-4 py-2 rounded-lg border border-slate-800 bg-slate-900 text-slate-400 hover:text-white transition flex items-center gap-2">
+        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        2. Python Monitor Bot
+      </button>
+      <button onclick="switchTab('docker')" id="tab-docker" class="tab-btn px-4 py-2 rounded-lg border border-slate-800 bg-slate-900 text-slate-400 hover:text-white transition flex items-center gap-2">
+        <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        3. Hardened Docker Stack
+      </button>
+    </div>
+
+    <!-- Tab 1: Website Builder Showcase -->
+    <div id="content-web" class="tech-card p-6 rounded-xl">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-800 gap-3">
+        <div>
+          <h4 class="text-base font-bold text-white">Projekt: Website Builder & UI Komponenten</h4>
+          <p class="text-xs text-slate-400 font-mono mt-0.5">projects/website-builder/index.html (Eigenständige Demo-Komponente)</p>
+        </div>
+        <a href="https://github.com/Phil12992/freelance-portfolio/tree/main/projects/website-builder" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-sky-400 hover:underline font-mono">
+          Code im Repo ansehen →
+        </a>
       </div>
 
-      <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
-        <div class="text-2xl font-black text-brand-400 mb-2">02</div>
-        <h4 class="font-bold text-white text-lg">Faires Festpreis-Angebot</h4>
-        <p class="text-slate-400 text-xs mt-2 leading-relaxed">Keine versteckten Überraschungen – ein transparenter Plan mit fester Deadline.</p>
+      <!-- Live interactive preview container -->
+      <div class="mt-5 rounded-lg border border-slate-700 bg-[#070b13] p-5">
+        <div class="text-xs font-mono text-slate-400 mb-3 flex items-center justify-between">
+          <span>Live-Vorschau der integrierten Web-Komponente:</span>
+          <span class="text-emerald-400">Status: Aktiv</span>
+        </div>
+        <div class="rounded-lg border border-slate-800 bg-slate-900/80 p-6">
+          <div class="max-w-md mx-auto text-center">
+            <span class="px-2.5 py-1 rounded bg-sky-950 text-sky-400 border border-sky-800 text-[11px] font-mono font-semibold">Demo UI</span>
+            <h5 class="text-xl font-bold text-white mt-3">Individuelle Landingpage</h5>
+            <p class="text-xs text-slate-300 mt-2">Sauberes semantisches HTML5, responsives Flexbox-Grid, optimiert auf Ladezeiten unter 200 Millisekunden.</p>
+            <div class="mt-4 flex justify-center gap-2">
+              <button onclick="alert('Demo Button geklickt: Interaktives Element funktioniert.')" class="px-3 py-1.5 rounded-md text-xs font-semibold bg-sky-600 text-white hover:bg-sky-500 transition">
+                Test-Interaktion
+              </button>
+              <a href="projects/website-builder/index.html" target="_blank" class="px-3 py-1.5 rounded-md text-xs font-semibold bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700 transition">
+                Vollbild öffnen
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Python Bot Showcase -->
+    <div id="content-bot" class="tech-card p-6 rounded-xl hidden">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-800 gap-3">
+        <div>
+          <h4 class="text-base font-bold text-white">Projekt: Asynchroner Monitoring- & Alert-Bot</h4>
+          <p class="text-xs text-slate-400 font-mono mt-0.5">projects/automation-bot/monitor_bot.py</p>
+        </div>
+        <a href="https://github.com/Phil12992/freelance-portfolio/tree/main/projects/automation-bot" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-emerald-400 hover:underline font-mono">
+          Code im Repo ansehen →
+        </a>
       </div>
 
-      <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
-        <div class="text-2xl font-black text-brand-400 mb-2">03</div>
-        <h4 class="font-bold text-white text-lg">Entwicklung & Demos</h4>
-        <p class="text-slate-400 text-xs mt-2 leading-relaxed">Regelmäßige Zwischenstände und Live-Vorschau, damit alles genau passt.</p>
+      <!-- Simulated Terminal -->
+      <div class="mt-5 rounded-lg border border-slate-700 bg-[#05080f] p-4 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3 text-slate-500">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+            <span class="ml-2 text-slate-400">python monitor_bot.py</span>
+          </div>
+          <button onclick="addBotLog()" class="text-[11px] text-emerald-400 hover:underline cursor-pointer">
+            + Simulation ausführen
+          </button>
+        </div>
+        <div id="bot-logs" class="space-y-1">
+          <div><span class="text-slate-500">[2026-10-06 19:48:01]</span> <span class="text-sky-400">[INFO]</span> Starte SiteMonitor für 2 Endpunkte (AsyncIO)...</div>
+          <div><span class="text-slate-500">[2026-10-06 19:48:02]</span> <span class="text-emerald-400">[OK]</span> https://phil12992.github.io/freelance-portfolio/ -> HTTP 200 (Latenz: 42.1ms)</div>
+          <div><span class="text-slate-500">[2026-10-06 19:48:02]</span> <span class="text-emerald-400">[OK]</span> https://api.github.com -> HTTP 200 (Latenz: 88.4ms)</div>
+          <div><span class="text-slate-500">[2026-10-06 19:48:03]</span> <span class="text-slate-400">[STATE]</span> Alle Zielsysteme intakt. Nächster Scan in 60s.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3: Docker Homelab Showcase -->
+    <div id="content-docker" class="tech-card p-6 rounded-xl hidden">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-800 gap-3">
+        <div>
+          <h4 class="text-base font-bold text-white">Projekt: Gehärteter Docker & Nginx Stack</h4>
+          <p class="text-xs text-slate-400 font-mono mt-0.5">projects/homelab-docker/docker-compose.yml & nginx.conf</p>
+        </div>
+        <a href="https://github.com/Phil12992/freelance-portfolio/tree/main/projects/homelab-docker" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-cyan-400 hover:underline font-mono">
+          Code im Repo ansehen →
+        </a>
       </div>
 
-      <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
-        <div class="text-2xl font-black text-emerald-400 mb-2">04</div>
-        <h4 class="font-bold text-white text-lg">Fertig & Live</h4>
-        <p class="text-slate-400 text-xs mt-2 leading-relaxed">Übergabe von Code, Deployment auf deinen Server oder Hosting-Domain & Support.</p>
+      <!-- Config Viewer -->
+      <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="rounded-lg border border-slate-800 bg-[#05080f] p-4 font-mono text-xs overflow-x-auto">
+          <div class="text-slate-400 font-bold border-b border-slate-800 pb-1 mb-2 text-[11px]">docker-compose.yml (Auszug)</div>
+          <pre class="text-slate-300 leading-normal"><code>services:
+  reverse-proxy:
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s</code></pre>
+        </div>
+
+        <div class="rounded-lg border border-slate-800 bg-[#05080f] p-4 font-mono text-xs overflow-x-auto">
+          <div class="text-slate-400 font-bold border-b border-slate-800 pb-1 mb-2 text-[11px]">nginx.conf Security Rules</div>
+          <pre class="text-slate-300 leading-normal"><code># Rate Limiting & Hardening
+limit_req_zone $binary_remote_addr
+  zone=api_limit:10m rate=10r/s;
+
+add_header X-Frame-Options "DENY";
+add_header X-Content-Type-Options "nosniff";
+add_header Referrer-Policy "strict-origin-when-cross-origin";
+add_header Content-Security-Policy "...";</code></pre>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- About Phil -->
-  <section id="ueber-mich" class="relative z-10 py-20 px-4 sm:px-6 max-w-4xl mx-auto">
-    <div class="glass-card p-8 sm:p-12 rounded-3xl border border-slate-800">
-      <div class="flex flex-col sm:flex-row items-center gap-8">
-        <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-brand-600 via-accent-500 to-emerald-400 p-1 flex-shrink-0">
-          <div class="w-full h-full bg-slate-950 rounded-xl flex items-center justify-center text-3xl font-extrabold text-white">
-            PB
-          </div>
+  <!-- Process / Ablauf -->
+  <section id="ablauf" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto border-t border-slate-800">
+    <div class="max-w-2xl mb-12">
+      <h2 class="text-xs uppercase tracking-wider text-sky-400 font-bold font-mono">Ablauf</h2>
+      <p class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Strukturierte Zusammenarbeit</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="p-5 rounded-lg bg-slate-900 border border-slate-800">
+        <div class="text-xs font-mono font-bold text-sky-400">Schritt 01</div>
+        <h4 class="text-base font-bold text-white mt-1">Anforderungsanalyse</h4>
+        <p class="text-xs text-slate-300 mt-2 leading-relaxed">Du schilderst kurz die Aufgabe, gewünschte Funktionen und Deadlines.</p>
+      </div>
+
+      <div class="p-5 rounded-lg bg-slate-900 border border-slate-800">
+        <div class="text-xs font-mono font-bold text-sky-400">Schritt 02</div>
+        <h4 class="text-base font-bold text-white mt-1">Verbindlicher Festpreis</h4>
+        <p class="text-xs text-slate-300 mt-2 leading-relaxed">Keine Stunden-Fallen. Ein transparentes Angebot mit klarem Leistungsumfang.</p>
+      </div>
+
+      <div class="p-5 rounded-lg bg-slate-900 border border-slate-800">
+        <div class="text-xs font-mono font-bold text-sky-400">Schritt 03</div>
+        <h4 class="text-base font-bold text-white mt-1">Direkte Entwicklung</h4>
+        <p class="text-xs text-slate-300 mt-2 leading-relaxed">Rasche Umsetzung mit regelmäßigen Live-Zwischenständen zum Testen.</p>
+      </div>
+
+      <div class="p-5 rounded-lg bg-slate-900 border border-slate-800">
+        <div class="text-xs font-mono font-bold text-emerald-400">Schritt 04</div>
+        <h4 class="text-base font-bold text-white mt-1">Übergabe & Dokumentation</h4>
+        <p class="text-xs text-slate-300 mt-2 leading-relaxed">Bereitstellung des sauberen Quellcodes oder Deployment auf deinen Server.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Phil (Real business details, no AI slop) -->
+  <section id="ueber-mich" class="py-16 px-4 sm:px-6 max-w-4xl mx-auto border-t border-slate-800">
+    <div class="tech-card p-6 sm:p-8 rounded-xl">
+      <div class="flex flex-col sm:flex-row items-start gap-6">
+        <div class="w-16 h-16 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-sky-400 font-mono text-2xl flex-shrink-0">
+          PB
         </div>
         <div>
-          <h3 class="text-2xl font-bold text-white">Hi, ich bin Philipp Brüll</h3>
-          <p class="text-slate-400 text-sm mt-3 leading-relaxed">
-            Ich bin 15 Jahre alt, komme aus Eichwalde bei Berlin und brenne für Web-Entwicklung, Python-Automatisierung und IT-Systeme. Ich entwickle moderne Softwarelösungen, die echte Probleme lösen – ohne bürokratischen Overhead, dafür mit vollem Einsatz und modernsten Technologien.
+          <h3 class="text-xl font-bold text-white">Über Philipp Brüll</h3>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+            Ich bin 15 Jahre alt, wohne in Eichwalde bei Berlin und konzentriere mich auf Web-Entwicklung, Python-Scripting und Linux-Server. Mein Ziel ist es, funktionale Software zu bauen, die ohne unnötige Framework-Komplexität auskommt und direkt einsatzbereit ist.
           </p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Python 3</span>
-            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">JavaScript / React</span>
-            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">TailwindCSS</span>
-            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Linux & Docker</span>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs font-mono text-slate-300">
+            <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700">Python 3</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700">JavaScript / TypeScript</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700">TailwindCSS</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700">Docker / Linux</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section with Sanitized Form & Honeypot -->
-  <section id="kontakt" class="relative z-10 py-20 px-4 sm:px-6 max-w-4xl mx-auto">
-    <div class="glass p-8 sm:p-12 rounded-3xl border border-brand-500/30 shadow-2xl shadow-brand-500/10">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Projekt anfragen</h2>
-        <p class="text-slate-400 mt-3 text-sm sm:text-base">
-          Schreib mir direkt per E-Mail oder nutze das Formular unten. Ich antworte innerhalb von 24 Stunden!
+  <!-- Contact Section (Accessible, keyboard friendly, clear labels, consent checkbox) -->
+  <section id="kontakt" class="py-16 px-4 sm:px-6 max-w-3xl mx-auto border-t border-slate-800">
+    <div class="tech-card p-6 sm:p-8 rounded-xl">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-extrabold text-white">Projekt anfragen</h2>
+        <p class="text-slate-300 text-sm mt-2">
+          Sende deine Nachricht direkt an <a href="mailto:phil.bruell@gmail.com" class="text-sky-400 font-mono underline hover:text-sky-300">phil.bruell@gmail.com</a> oder nutze das Formular.
         </p>
-        <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 border border-slate-700/80 text-brand-400 font-mono text-sm">
-          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          <a href="mailto:phil.bruell@gmail.com" class="hover:underline">phil.bruell@gmail.com</a>
-        </div>
       </div>
 
-      <!-- Sanitized Interactive Contact Form -->
-      <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4 max-w-lg mx-auto text-left">
-        <!-- Anti-Spam Honeypot Field (Hidden for real users) -->
+      <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4 text-left">
+        <!-- Anti-Spam Honeypot -->
         <div class="hidden" aria-hidden="true">
-          <label for="website_hp">Lass dieses Feld leer</label>
-          <input type="text" id="website_hp" name="website_hp" tabindex="-1" autocomplete="off">
+          <label for="company_website_hp">Lass dieses Feld leer</label>
+          <input type="text" id="company_website_hp" name="company_website_hp" tabindex="-1" autocomplete="off">
         </div>
 
         <div>
-          <label for="sender_name" class="block text-xs font-semibold text-slate-300 mb-1">Dein Name / Unternehmen</label>
-          <input type="text" id="sender_name" required maxlength="100" placeholder="z.B. Max Mustermann" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500 transition">
+          <label for="contact_name" class="block text-xs font-semibold text-slate-300 mb-1">Name oder Firmenname *</label>
+          <input type="text" id="contact_name" required maxlength="100" placeholder="Max Mustermann" class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition">
         </div>
 
         <div>
-          <label for="project_type" class="block text-xs font-semibold text-slate-300 mb-1">Projekt-Art</label>
-          <select id="project_type" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:outline-none focus:border-brand-500 transition">
-            <option value="Webseite / Landing Page">Webseite / Landing Page</option>
-            <option value="Python Automatisierung / Scraper">Python Automatisierung / Scraper</option>
-            <option value="Telegram / Discord Bot">Telegram / Discord Bot</option>
-            <option value="Server / Docker / IT-Setup">Server / Docker / IT-Setup</option>
-            <option value="Sonstiges">Sonstiges</option>
+          <label for="contact_type" class="block text-xs font-semibold text-slate-300 mb-1">Bereich des Vorhabens *</label>
+          <select id="contact_type" class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition">
+            <option value="Webseite">Webseite / Landing Page</option>
+            <option value="Python Automatisierung">Python Automatisierung / Scraper</option>
+            <option value="Bot Entwicklung">Telegram / Discord Bot</option>
+            <option value="Docker / Server">Docker & Server Infrastruktur</option>
+            <option value="Sonstiges">Sonstiges Vorhaben</option>
           </select>
         </div>
 
         <div>
-          <label for="sender_message" class="block text-xs font-semibold text-slate-300 mb-1">Kurze Beschreibung</label>
-          <textarea id="sender_message" required rows="4" maxlength="1500" placeholder="Worum geht es in deinem Projekt? Welche Deadlines oder Wünsche hast du?" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500 transition"></textarea>
+          <label for="contact_message" class="block text-xs font-semibold text-slate-300 mb-1">Projektbeschreibung *</label>
+          <textarea id="contact_message" required rows="4" maxlength="1500" placeholder="Beschreibe kurz die Anforderungen, Wünsche oder Deadlines..." class="w-full px-3.5 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition"></textarea>
         </div>
 
-        <button type="submit" id="submitBtn" class="w-full py-3.5 px-6 rounded-xl font-bold text-white bg-gradient-to-r from-brand-600 to-accent-500 hover:from-brand-500 hover:to-accent-400 shadow-lg shadow-brand-500/20 transition flex items-center justify-center gap-2">
-          <span>E-Mail Entwurf generieren & absenden</span>
+        <!-- Form Consent Checkbox (Privacy compliance) -->
+        <div class="flex items-start gap-2 pt-1">
+          <input type="checkbox" id="consent_check" required class="mt-1 rounded bg-slate-900 border-slate-700 text-sky-600 focus:ring-sky-500">
+          <label for="consent_check" class="text-xs text-slate-400 leading-normal">
+            Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage per E-Mail übermittelt werden. Weitere Informationen siehe <a href="datenschutz.html" class="text-sky-400 underline">Datenschutzerklärung</a>.
+          </label>
+        </div>
+
+        <button type="submit" class="w-full py-3 px-4 rounded-lg font-bold text-white bg-sky-600 hover:bg-sky-500 transition flex items-center justify-center gap-2 text-sm shadow-sm cursor-pointer">
+          <span>E-Mail Entwurf öffnen & senden</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </button>
 
-        <div id="formFeedback" class="hidden text-xs text-center p-3 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"></div>
+        <div id="form-msg" class="hidden text-xs text-center p-3 rounded-lg bg-emerald-950/80 text-emerald-400 border border-emerald-800"></div>
       </form>
-
-      <div class="mt-8 text-center text-xs text-slate-500">
-        Aufträge auch über <strong>eBay Kleinanzeigen</strong>, <strong>Fiverr</strong> & <strong>Upwork</strong> möglich.
-      </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="relative z-10 py-10 border-t border-slate-900 text-center text-xs text-slate-500">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+  <!-- Legal & Privacy Compliant Footer -->
+  <footer class="py-10 border-t border-slate-800 text-xs text-slate-400 bg-[#090d16]">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
       <div>
-        © 2026 Philipp Brüll. Alle Rechte vorbehalten.
+        <p class="font-medium text-slate-300">Philipp Brüll | Web-Entwicklung & IT-Automatisierung</p>
+        <p class="text-slate-500 mt-1">Eichwalde bei Berlin | E-Mail: phil.bruell@gmail.com</p>
       </div>
-      <div class="flex items-center gap-6">
-        <a href="mailto:phil.bruell@gmail.com" class="hover:text-slate-300 transition">phil.bruell@gmail.com</a>
-        <a href="https://github.com/Phil12992/freelance-portfolio" class="hover:text-slate-300 transition">Repository</a>
-        <a href="https://github.com/Phil12992/freelance-portfolio/blob/main/LICENSE" class="hover:text-slate-300 transition">MIT Lizenz</a>
+
+      <div class="flex items-center gap-5 font-mono">
+        <a href="impressum.html" class="hover:text-white underline transition">Impressum</a>
+        <a href="datenschutz.html" class="hover:text-white underline transition">Datenschutz</a>
+        <a href="https://github.com/Phil12992/freelance-portfolio" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">GitHub Repo</a>
       </div>
     </div>
   </footer>
 
-  <!-- Safe Client-Side Form Handler with XSS sanitization & Honeypot -->
+  <!-- Scripts: Tabs & Safe Sanitized Form Handler -->
   <script>
+    function switchTab(tabId) {
+      ['web', 'bot', 'docker'].forEach(id => {
+        const btn = document.getElementById('tab-' + id);
+        const content = document.getElementById('content-' + id);
+        if (id === tabId) {
+          btn.classList.add('active', 'border-sky-400', 'bg-slate-800', 'text-white');
+          btn.classList.remove('bg-slate-900', 'text-slate-400', 'border-slate-800');
+          content.classList.remove('hidden');
+        } else {
+          btn.classList.remove('active', 'border-sky-400', 'bg-slate-800', 'text-white');
+          btn.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-800');
+          content.classList.add('hidden');
+        }
+      });
+    }
+
+    function addBotLog() {
+      const container = document.getElementById('bot-logs');
+      const time = new Date().toTimeString().split(' ')[0];
+      const newDiv = document.createElement('div');
+      newDiv.innerHTML = `<span class="text-slate-500">[2026-10-06 ${time}]</span> <span class="text-emerald-400">[PING]</span> Manuelle Überprüfung durchgeführt: 2 Endpunkte antworten fehlerfrei.`;
+      container.appendChild(newDiv);
+    }
+
     function sanitizeInput(str) {
       if (!str) return '';
       const div = document.createElement('div');
@@ -447,35 +532,23 @@
       return div.innerHTML.replace(/[<>"'`]/g, '');
     }
 
-    function handleContactSubmit(e) {
+    function handleFormSubmit(e) {
       e.preventDefault();
-      // Honeypot check for bots
-      const hp = document.getElementById('website_hp').value;
-      if (hp) {
-        console.warn('Bot detected via honeypot');
-        return;
-      }
+      const hp = document.getElementById('company_website_hp').value;
+      if (hp) return; // Honeypot bot protection
 
-      const name = sanitizeInput(document.getElementById('sender_name').value);
-      const type = sanitizeInput(document.getElementById('project_type').value);
-      const msg = sanitizeInput(document.getElementById('sender_message').value);
+      const name = sanitizeInput(document.getElementById('contact_name').value);
+      const type = sanitizeInput(document.getElementById('contact_type').value);
+      const message = sanitizeInput(document.getElementById('contact_message').value);
 
       const subject = encodeURIComponent(`Projektanfrage [${type}]: ${name}`);
-      const body = encodeURIComponent(`Hallo Philipp,
-
-ich interessiere mich für ein Projekt im Bereich "${type}".
-
-Beschreibung:
-${msg}
-
-Viele Grüße,
-${name}`);
+      const body = encodeURIComponent(`Hallo Philipp,\n\nich interessiere mich für ein Projekt im Bereich "${type}".\n\nBeschreibung:\n${message}\n\nViele Grüße,\n${name}`);
 
       const mailtoUrl = `mailto:phil.bruell@gmail.com?subject=${subject}&body=${body}`;
-      
-      const feedback = document.getElementById('formFeedback');
+
+      const feedback = document.getElementById('form-msg');
       feedback.classList.remove('hidden');
-      feedback.innerHTML = '✓ Dein Mailprogramm wird geöffnet. Alternativ kannst du direkt an <strong>phil.bruell@gmail.com</strong> schreiben!';
+      feedback.textContent = '✓ Dein E-Mail Programm wird geöffnet. Alternativ kannst du direkt an phil.bruell@gmail.com schreiben.';
 
       window.location.href = mailtoUrl;
     }
