@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Philipp Brühl | Web-Entwicklung & IT-Automatisierung</title>
-  <meta name="description" content="Moderne Webseiten, smarte Automatisierungen, Bots & IT-Infrastruktur von Philipp Brühl. Schnelle Umsetzung, faire Festpreise.">
+  
+  <!-- Security Headers & Meta Tags -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline'; script-src 'self' https://cdn.tailwindcss.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  
+  <title>Philipp Brüll | Web-Entwicklung & IT-Automatisierung</title>
+  <meta name="description" content="Moderne Webseiten, smarte Automatisierungen, Bots & IT-Infrastruktur von Philipp Brüll. Schnelle Umsetzung, faire Festpreise.">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,13 +48,13 @@
       background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, rgba(14, 165, 233, 0.08) 40%, transparent 70%);
     }
     .glass {
-      background: rgba(15, 23, 42, 0.75);
+      background: rgba(15, 23, 42, 0.85);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
     .glass-card {
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(15, 23, 42, 0.65);
       backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.06);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -72,7 +78,7 @@
         <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-500 to-accent-400 flex items-center justify-center font-bold text-white shadow-lg shadow-brand-500/20 group-hover:scale-105 transition">
           PB
         </div>
-        <span class="font-bold text-lg tracking-tight text-white group-hover:text-brand-400 transition">Philipp Brühl</span>
+        <span class="font-bold text-lg tracking-tight text-white group-hover:text-brand-400 transition">Philipp Brüll</span>
       </a>
 
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
@@ -80,9 +86,14 @@
         <a href="#projekte" class="hover:text-white transition">Projekte</a>
         <a href="#ablauf" class="hover:text-white transition">Ablauf</a>
         <a href="#ueber-mich" class="hover:text-white transition">Über mich</a>
+        <a href="#kontakt" class="hover:text-white transition">Kontakt</a>
       </nav>
 
       <div class="flex items-center gap-3">
+        <a href="mailto:phil.bruell@gmail.com" class="hidden sm:inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 transition">
+          <svg class="w-3.5 h-3.5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          phil.bruell@gmail.com
+        </a>
         <a href="https://github.com/Phil12992" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition" title="GitHub">
           <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
@@ -105,15 +116,16 @@
     </h1>
 
     <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-      Ich baue responsive Webseiten, automatisierte Daten-Workflows, Bots für Telegram & Discord und verlässliche IT-Lösungen. Schnell, transparent und unkompliziert.
+      Hi, ich bin <strong class="text-white">Philipp Brüll</strong>. Ich baue responsive Webseiten, automatisierte Daten-Workflows, Bots für Telegram & Discord und sichere IT-Systeme. Schnell, transparent und ohne Agentur-Overhead.
     </p>
 
     <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="#kontakt" class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-bold text-white bg-gradient-to-r from-brand-600 to-accent-500 hover:from-brand-500 hover:to-accent-400 shadow-xl shadow-brand-500/25 transition">
-        Kostenloses Erstgespräch anfragen
+      <a href="mailto:phil.bruell@gmail.com?subject=Projektanfrage" class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-bold text-white bg-gradient-to-r from-brand-600 to-accent-500 hover:from-brand-500 hover:to-accent-400 shadow-xl shadow-brand-500/25 transition flex items-center justify-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Direkt anfragen (phil.bruell@gmail.com)
       </a>
       <a href="#projekte" class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-semibold text-slate-300 bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 transition">
-        Beispiel-Projekte ansehen
+        Echte Projekte ansehen
       </a>
     </div>
 
@@ -132,8 +144,8 @@
         <div class="text-base font-bold text-white mt-1">100% Mobile-First & SEO</div>
       </div>
       <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
-        <div class="text-xs text-slate-400 font-medium">Reaktionszeit</div>
-        <div class="text-base font-bold text-white mt-1">&lt; 24h Rückmeldung</div>
+        <div class="text-xs text-slate-400 font-medium">Direktkontakt</div>
+        <div class="text-sm font-bold text-emerald-400 mt-1 truncate">phil.bruell@gmail.com</div>
       </div>
     </div>
   </section>
@@ -143,7 +155,7 @@
     <div class="text-center max-w-2xl mx-auto mb-16">
       <h2 class="text-xs uppercase tracking-widest text-brand-400 font-bold">Was ich anbiete</h2>
       <p class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Maßgeschneiderte IT- & Web-Dienstleistungen</p>
-      <p class="text-slate-400 mt-4 text-sm sm:text-base">Keine 08/15-Lösungen von der Stange. Maßgeschneidert auf deinen konkreten Anwendungsfall.</p>
+      <p class="text-slate-400 mt-4 text-sm sm:text-base">Echte individuelle Software statt generischer AI-Texte.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -157,8 +169,8 @@
           High-Performance Webseiten für Handwerker, Dienstleister oder persönliche Portfolios. 100% responsiv für Smartphones, suchmaschinenoptimiert (SEO) und blitzschnell geladen.
         </p>
         <ul class="mt-6 space-y-2 text-xs font-medium text-slate-300">
-          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Individuelles Mobile-First Design</li>
-          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Schnelle Ladezeiten (PageSpeed &gt; 90)</li>
+          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Individuelles Mobile-First Design (TailwindCSS / React)</li>
+          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Schnelle Ladezeiten (PageSpeed 95+)</li>
           <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> DSGVO-konform ohne Cookie-Banner-Wahnsinn</li>
         </ul>
       </div>
@@ -207,18 +219,18 @@
         <ul class="mt-6 space-y-2 text-xs font-medium text-slate-300">
           <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Docker & Docker Compose Orchestrierung</li>
           <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Proxmox VE, Linux (Debian/Ubuntu) Härtung</li>
-          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Reverse Proxy, SSL & Port-Management</li>
+          <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Reverse Proxy, SSL, CSP & Rate-Limiting</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
+  <!-- Real Projects Section -->
   <section id="projekte" class="relative z-10 py-20 px-4 sm:px-6 max-w-6xl mx-auto">
     <div class="text-center max-w-2xl mx-auto mb-16">
-      <h2 class="text-xs uppercase tracking-widest text-brand-400 font-bold">Showcase</h2>
-      <p class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Ausgewählte Projekte & Demos</p>
-      <p class="text-slate-400 mt-4 text-sm sm:text-base">Einblick in echte Umsetzungen und Code-Strukturen.</p>
+      <h2 class="text-xs uppercase tracking-widest text-brand-400 font-bold">Echte Code-Repositories</h2>
+      <p class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Funktionsfähige Projekte im Repository</p>
+      <p class="text-slate-400 mt-4 text-sm sm:text-base">Keine Mockups – echter, lauffähiger Code direkt im GitHub-Repo.</p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -227,21 +239,21 @@
         <div class="p-6">
           <div class="flex items-center justify-between mb-4">
             <span class="text-xs font-bold uppercase tracking-wider text-brand-400 bg-brand-500/10 px-2.5 py-1 rounded-full">Frontend</span>
-            <span class="text-xs text-slate-500 font-mono">Live Demo</span>
+            <span class="text-xs text-emerald-400 font-mono">Lauffähig</span>
           </div>
-          <h4 class="text-xl font-bold text-white">Website Builder & Showcase</h4>
+          <h4 class="text-xl font-bold text-white">Website Builder & Komponenten</h4>
           <p class="text-slate-400 text-sm mt-2 leading-relaxed">
-            Moderne responsive Landingpages mit Dark Mode, Micro-Interactions und TailwindCSS Komponenten.
+            Vollständige, responsive Landingpage mit modularem Hero, animierten Feature-Cards und barrierefreiem Styling.
           </p>
           <div class="mt-6 flex flex-wrap gap-1.5">
             <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">HTML5</span>
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">TailwindCSS</span>
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">JavaScript</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">CSS3</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Responsive</span>
           </div>
         </div>
-        <div class="p-6 pt-0">
+        <div class="p-6 pt-0 border-t border-slate-800/60 mt-4">
           <a href="https://github.com/Phil12992/freelance-portfolio/tree/main/projects/website-builder" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-400 hover:text-brand-300 transition">
-            Projekt-Docs öffnen →
+            Quellcode im Repo öffnen →
           </a>
         </div>
       </div>
@@ -251,11 +263,11 @@
         <div class="p-6">
           <div class="flex items-center justify-between mb-4">
             <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full">Automation</span>
-            <span class="text-xs text-slate-500 font-mono">Python 3</span>
+            <span class="text-xs text-emerald-400 font-mono">Python 3</span>
           </div>
-          <h4 class="text-xl font-bold text-white">Automations-Bots & Pipeline</h4>
+          <h4 class="text-xl font-bold text-white">Asynchroner Monitoring-Bot</h4>
           <p class="text-slate-400 text-sm mt-2 leading-relaxed">
-            24/7 Hintergrund-Dienste, die Marktdaten analysieren, Events überwachen und Alarme an Telegram ausliefern.
+            Produktiver Python-Hintergrund-Dienst (`monitor_bot.py`), der HTTP-Endpunkte abtastet, Statusänderungen erkennt und Telegram-Alerts sendet.
           </p>
           <div class="mt-6 flex flex-wrap gap-1.5">
             <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Python</span>
@@ -263,9 +275,9 @@
             <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Telegram API</span>
           </div>
         </div>
-        <div class="p-6 pt-0">
+        <div class="p-6 pt-0 border-t border-slate-800/60 mt-4">
           <a href="https://github.com/Phil12992/freelance-portfolio/tree/main/projects/automation-bot" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition">
-            Projekt-Docs öffnen →
+            Quellcode im Repo öffnen →
           </a>
         </div>
       </div>
@@ -275,21 +287,21 @@
         <div class="p-6">
           <div class="flex items-center justify-between mb-4">
             <span class="text-xs font-bold uppercase tracking-wider text-accent-400 bg-accent-500/10 px-2.5 py-1 rounded-full">Infrastruktur</span>
-            <span class="text-xs text-slate-500 font-mono">DevOps</span>
+            <span class="text-xs text-emerald-400 font-mono">Production Stack</span>
           </div>
-          <h4 class="text-xl font-bold text-white">Docker & Homelab Cluster</h4>
+          <h4 class="text-xl font-bold text-white">Gehärteter Docker Homelab Stack</h4>
           <p class="text-slate-400 text-sm mt-2 leading-relaxed">
-            Containerisiertes Service-Hosting mit Proxmox VE, automatischer SSL-Terminierung und Monitoring.
+            Vollständige `docker-compose.yml` und `nginx.conf` mit strikten Security-Headern, CSP, Rate-Limiting und Portainer-Management.
           </p>
           <div class="mt-6 flex flex-wrap gap-1.5">
             <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Docker</span>
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Proxmox</span>
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Linux</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Nginx Hardened</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Security</span>
           </div>
         </div>
-        <div class="p-6 pt-0">
-          <a href="https://github.com/Phil12992/freelance-portfolio" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-accent-400 hover:text-accent-300 transition">
-            Repository ansehen →
+        <div class="p-6 pt-0 border-t border-slate-800/60 mt-4">
+          <a href="https://github.com/Phil12992/freelance-portfolio/tree/main/projects/homelab-docker" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-semibold text-accent-400 hover:text-accent-300 transition">
+            Quellcode im Repo öffnen →
           </a>
         </div>
       </div>
@@ -307,7 +319,7 @@
       <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
         <div class="text-2xl font-black text-brand-400 mb-2">01</div>
         <h4 class="font-bold text-white text-lg">Kurzes Erstgespräch</h4>
-        <p class="text-slate-400 text-xs mt-2 leading-relaxed">Du schreibst mir deine Anforderungen und Wünsche per Nachricht oder Mail.</p>
+        <p class="text-slate-400 text-xs mt-2 leading-relaxed">Du schreibst mir deine Anforderungen und Wünsche per Mail an <span class="text-white">phil.bruell@gmail.com</span>.</p>
       </div>
 
       <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
@@ -340,7 +352,7 @@
           </div>
         </div>
         <div>
-          <h3 class="text-2xl font-bold text-white">Hi, ich bin Philipp Brühl</h3>
+          <h3 class="text-2xl font-bold text-white">Hi, ich bin Philipp Brüll</h3>
           <p class="text-slate-400 text-sm mt-3 leading-relaxed">
             Ich bin 15 Jahre alt, komme aus Eichwalde bei Berlin und brenne für Web-Entwicklung, Python-Automatisierung und IT-Systeme. Ich entwickle moderne Softwarelösungen, die echte Probleme lösen – ohne bürokratischen Overhead, dafür mit vollem Einsatz und modernsten Technologien.
           </p>
@@ -355,25 +367,58 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="kontakt" class="relative z-10 py-20 px-4 sm:px-6 max-w-4xl mx-auto text-center">
-    <div class="glass p-10 sm:p-14 rounded-3xl border border-brand-500/30 shadow-2xl shadow-brand-500/10">
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Bereit für dein nächstes Projekt?</h2>
-      <p class="text-slate-400 mt-4 max-w-xl mx-auto text-sm sm:text-base">
-        Egal ob eine neue Webseite, ein automatisierter Bot oder Unterstützung bei deinem IT-Setup: Schreib mir kurz, worum es geht!
-      </p>
-
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="https://github.com/Phil12992" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 flex items-center justify-center gap-2 transition">
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          GitHub: @Phil12992
-        </a>
-        <a href="https://github.com/Phil12992/freelance-portfolio/issues/new" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-white bg-brand-600 hover:bg-brand-500 shadow-lg shadow-brand-500/25 transition">
-          Direkte Nachricht senden
-        </a>
+  <!-- Contact Section with Sanitized Form & Honeypot -->
+  <section id="kontakt" class="relative z-10 py-20 px-4 sm:px-6 max-w-4xl mx-auto">
+    <div class="glass p-8 sm:p-12 rounded-3xl border border-brand-500/30 shadow-2xl shadow-brand-500/10">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Projekt anfragen</h2>
+        <p class="text-slate-400 mt-3 text-sm sm:text-base">
+          Schreib mir direkt per E-Mail oder nutze das Formular unten. Ich antworte innerhalb von 24 Stunden!
+        </p>
+        <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 border border-slate-700/80 text-brand-400 font-mono text-sm">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <a href="mailto:phil.bruell@gmail.com" class="hover:underline">phil.bruell@gmail.com</a>
+        </div>
       </div>
 
-      <div class="mt-8 text-xs text-slate-500">
+      <!-- Sanitized Interactive Contact Form -->
+      <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4 max-w-lg mx-auto text-left">
+        <!-- Anti-Spam Honeypot Field (Hidden for real users) -->
+        <div class="hidden" aria-hidden="true">
+          <label for="website_hp">Lass dieses Feld leer</label>
+          <input type="text" id="website_hp" name="website_hp" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div>
+          <label for="sender_name" class="block text-xs font-semibold text-slate-300 mb-1">Dein Name / Unternehmen</label>
+          <input type="text" id="sender_name" required maxlength="100" placeholder="z.B. Max Mustermann" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500 transition">
+        </div>
+
+        <div>
+          <label for="project_type" class="block text-xs font-semibold text-slate-300 mb-1">Projekt-Art</label>
+          <select id="project_type" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:outline-none focus:border-brand-500 transition">
+            <option value="Webseite / Landing Page">Webseite / Landing Page</option>
+            <option value="Python Automatisierung / Scraper">Python Automatisierung / Scraper</option>
+            <option value="Telegram / Discord Bot">Telegram / Discord Bot</option>
+            <option value="Server / Docker / IT-Setup">Server / Docker / IT-Setup</option>
+            <option value="Sonstiges">Sonstiges</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="sender_message" class="block text-xs font-semibold text-slate-300 mb-1">Kurze Beschreibung</label>
+          <textarea id="sender_message" required rows="4" maxlength="1500" placeholder="Worum geht es in deinem Projekt? Welche Deadlines oder Wünsche hast du?" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500 transition"></textarea>
+        </div>
+
+        <button type="submit" id="submitBtn" class="w-full py-3.5 px-6 rounded-xl font-bold text-white bg-gradient-to-r from-brand-600 to-accent-500 hover:from-brand-500 hover:to-accent-400 shadow-lg shadow-brand-500/20 transition flex items-center justify-center gap-2">
+          <span>E-Mail Entwurf generieren & absenden</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+
+        <div id="formFeedback" class="hidden text-xs text-center p-3 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"></div>
+      </form>
+
+      <div class="mt-8 text-center text-xs text-slate-500">
         Aufträge auch über <strong>eBay Kleinanzeigen</strong>, <strong>Fiverr</strong> & <strong>Upwork</strong> möglich.
       </div>
     </div>
@@ -383,14 +428,57 @@
   <footer class="relative z-10 py-10 border-t border-slate-900 text-center text-xs text-slate-500">
     <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div>
-        © 2026 Philipp Brühl. Alle Rechte vorbehalten.
+        © 2026 Philipp Brüll. Alle Rechte vorbehalten.
       </div>
       <div class="flex items-center gap-6">
+        <a href="mailto:phil.bruell@gmail.com" class="hover:text-slate-300 transition">phil.bruell@gmail.com</a>
         <a href="https://github.com/Phil12992/freelance-portfolio" class="hover:text-slate-300 transition">Repository</a>
         <a href="https://github.com/Phil12992/freelance-portfolio/blob/main/LICENSE" class="hover:text-slate-300 transition">MIT Lizenz</a>
       </div>
     </div>
   </footer>
 
+  <!-- Safe Client-Side Form Handler with XSS sanitization & Honeypot -->
+  <script>
+    function sanitizeInput(str) {
+      if (!str) return '';
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML.replace(/[<>"'`]/g, '');
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      // Honeypot check for bots
+      const hp = document.getElementById('website_hp').value;
+      if (hp) {
+        console.warn('Bot detected via honeypot');
+        return;
+      }
+
+      const name = sanitizeInput(document.getElementById('sender_name').value);
+      const type = sanitizeInput(document.getElementById('project_type').value);
+      const msg = sanitizeInput(document.getElementById('sender_message').value);
+
+      const subject = encodeURIComponent(`Projektanfrage [${type}]: ${name}`);
+      const body = encodeURIComponent(`Hallo Philipp,
+
+ich interessiere mich für ein Projekt im Bereich "${type}".
+
+Beschreibung:
+${msg}
+
+Viele Grüße,
+${name}`);
+
+      const mailtoUrl = `mailto:phil.bruell@gmail.com?subject=${subject}&body=${body}`;
+      
+      const feedback = document.getElementById('formFeedback');
+      feedback.classList.remove('hidden');
+      feedback.innerHTML = '✓ Dein Mailprogramm wird geöffnet. Alternativ kannst du direkt an <strong>phil.bruell@gmail.com</strong> schreiben!';
+
+      window.location.href = mailtoUrl;
+    }
+  </script>
 </body>
 </html>
