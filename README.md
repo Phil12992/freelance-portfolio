@@ -3,6 +3,7 @@
 
 [![GitHub](https://img.shields.io/badge/GitHub-Phil12992-181717?style=for-the-badge&logo=github)](https://github.com/Phil12992)
 [![Status](https://img.shields.io/badge/Status-Offen%20für%20Aufträge-brightgreen?style=for-the-badge)]()
+[![Live Website](https://img.shields.io/badge/Live%20Website-phil12992.github.io-success?style=for-the-badge&logo=googlechrome)](https://phil12992.github.io/freelance-portfolio/)
 [![Tech](https://img.shields.io/badge/Stack-Python%20%7C%20TypeScript%20%7C%20Docker-blue?style=for-the-badge)]()
 
 Ich entwickle maßgeschneiderte **Webseiten**, smarte **Automatisierungs-Lösungen**, **Bots** (Telegram / Discord) und verlässliche **IT-Infrastrukturen** für Selbstständige, Start-ups und kleine Unternehmen.
