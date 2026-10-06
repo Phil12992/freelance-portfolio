@@ -1,0 +1,8 @@
+{
+  "check_interval_seconds": 60,
+  "targets": [
+    "https://phil12992.github.io/freelance-portfolio/"
+  ],
+  "telegram_chat_id": "",
+  "telegram_bot_token": ""
+}
