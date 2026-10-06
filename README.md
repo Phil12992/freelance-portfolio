@@ -1,5 +1,5 @@
 # 👋 Hi, ich bin Philipp (Phil) Brühl
-### Web-Entwickler, Automatisierungs-Spezialist & IT-Enthusiast aus Eichwalde / Berlin 🚀
+### Web-Entwickler, Automatisierungs-Spezialist & IT-Enthusiast aus KW / Berlin 🚀
 
 [![GitHub](https://img.shields.io/badge/GitHub-Phil12992-181717?style=for-the-badge&logo=github)](https://github.com/Phil12992)
 [![Status](https://img.shields.io/badge/Status-Offen%20für%20Aufträge-brightgreen?style=for-the-badge)]()
@@ -56,7 +56,7 @@ Ich entwickle maßgeschneiderte **Webseiten**, smarte **Automatisierungs-Lösung
 Du hast ein Projekt oder eine Aufgabe, die automatisiert oder entwickelt werden soll? Schreib mir gerne!
 
 - **GitHub:** [@Phil12992](https://github.com/Phil12992)
-- **Standort:** Eichwalde / Berlin
+- **Standort:** Königswusterhausen / Berlin
 - **Plattformen:** eBay Kleinanzeigen, Upwork, Fiverr
 
 ---
