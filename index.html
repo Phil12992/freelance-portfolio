@@ -5,20 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Security Headers -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline'; script-src 'self' https://cdn.tailwindcss.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://phil12992.github.io/;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline'; script-src 'self' https://cdn.tailwindcss.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   
-  <title>Philipp Brüll | Web-Entwickler & Software Automation</title>
-  <meta name="description" content="Portfolio von Philipp Brüll (Eichwalde bei Berlin). Full-Stack Webentwicklung, JavaScript Apps, Python Automatisierung und Docker Hosting.">
+  <title>Philipp Brüll | Web-Entwicklung, Automatisierung & IT-Systeme</title>
+  <meta name="description" content="Philipp Brüll aus Eichwalde bei Berlin: Moderne Unternehmens-Websites, Python Prozess-Automatisierung und sichere IT- & Server-Setups für Betriebe und Selbstständige.">
   
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   
-  <!-- Tailwind CSS & Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
   <script>
     tailwind.config = {
@@ -29,11 +28,14 @@
             mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
-            brand: '#0ea5e9',
-            brandDark: '#0284c7',
-            bgDark: '#08090d',
-            panel: '#0f1219',
-            panelBorder: '#1c2230',
+            brand: '#0284c7',
+            brandLight: '#38bdf8',
+            surface: {
+              900: '#070b14',
+              850: '#0b101d',
+              800: '#111728',
+              700: '#1a233a',
+            }
           }
         }
       }
@@ -42,24 +44,24 @@
 
   <style>
     body {
-      background-color: #08090d;
+      background-color: #070b14;
       color: #e2e8f0;
       font-family: 'Inter', -apple-system, sans-serif;
     }
-    .project-card {
-      background-color: #0f1219;
-      border: 1px solid #1c2230;
-      transition: border-color 0.15s ease, background-color 0.15s ease;
+    .b2b-card {
+      background: #0b101d;
+      border: 1px solid #1a233a;
+      transition: border-color 0.15s ease, transform 0.15s ease;
     }
-    .project-card:hover {
+    .b2b-card:hover {
       border-color: #38bdf8;
-      background-color: #121722;
+      transform: translateY(-2px);
     }
     .tag {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.72rem;
-      background: #151a26;
-      border: 1px solid #242c3d;
+      background: #111728;
+      border: 1px solid #1f2a46;
       color: #94a3b8;
       padding: 0.2rem 0.5rem;
       border-radius: 4px;
@@ -68,291 +70,360 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-sky-500 selection:text-white">
 
-  <!-- Top Navigation -->
-  <header class="border-b border-panelBorder bg-[#08090d]/90 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2.5">
-        <span class="w-7 h-7 rounded bg-sky-500/10 border border-sky-500/30 text-sky-400 font-mono font-bold text-xs flex items-center justify-center">PB</span>
-        <span class="font-bold text-sm tracking-tight text-white">Philipp Brüll</span>
+  <!-- Header -->
+  <header class="border-b border-[#1a233a] bg-[#070b14]/95 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-sky-950/80 border border-sky-800 text-sky-400 font-mono font-bold text-xs flex items-center justify-center">PB</div>
+        <div>
+          <span class="font-bold text-sm tracking-tight text-white">Philipp Brüll</span>
+          <span class="hidden sm:inline-block text-xs text-slate-400 ml-2 font-mono">B2B Web & IT-Lösungen</span>
+        </div>
       </a>
 
       <nav class="hidden md:flex items-center gap-6 text-xs font-mono text-slate-400">
-        <a href="#projekte" class="hover:text-white transition">/projekte</a>
         <a href="#leistungen" class="hover:text-white transition">/leistungen</a>
+        <a href="#projekte" class="hover:text-white transition">/referenzen</a>
+        <a href="#ablauf" class="hover:text-white transition">/ablauf</a>
         <a href="#profil" class="hover:text-white transition">/profil</a>
         <a href="#kontakt" class="hover:text-white transition">/kontakt</a>
       </nav>
 
       <div class="flex items-center gap-3">
-        <a href="https://github.com/Phil12992" target="_blank" rel="noopener noreferrer" class="p-2 rounded bg-[#0f1219] border border-panelBorder text-slate-300 hover:text-white transition" title="GitHub Profil">
+        <a href="https://github.com/Phil12992" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-[#0b101d] border border-[#1a233a] text-slate-300 hover:text-white transition" title="GitHub">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
-        <a href="mailto:phil.bruell@gmail.com" class="px-3 py-1.5 rounded bg-sky-600 hover:bg-sky-500 text-white font-medium text-xs transition">
-          E-Mail senden
+        <a href="#kontakt" class="px-3.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-medium text-xs transition">
+          Projekt anfragen
         </a>
       </div>
     </div>
   </header>
 
-  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
 
     <!-- Hero Section -->
-    <section class="pb-14 border-b border-panelBorder">
-      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#151a26] border border-[#242c3d] font-mono text-xs text-sky-400 mb-6">
+    <section class="pb-14 border-b border-[#1a233a]">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-semibold bg-emerald-950/60 text-emerald-400 border border-emerald-800/80 mb-6 font-mono">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-        Eichwalde bei Berlin &middot; Offen für Aufträge
+        Status: Verfügbar für Freelance-Aufträge & KMU-Projekte
       </div>
 
-      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-        Philipp Brüll
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+        Moderne Unternehmens-Websites, Python-Automatisierung & sichere IT-Systeme.
       </h1>
-      <p class="text-lg sm:text-xl text-slate-300 font-medium mt-2">
-        Softwareentwicklung, moderne Webanwendungen & Automatisierung.
+
+      <p class="text-base sm:text-lg text-slate-300 font-medium mt-4 max-w-3xl leading-relaxed">
+        Ich bin <strong class="text-white">Philipp Brüll</strong>, 15 Jahre alt aus Eichwalde bei Berlin. Ich entwickle maßgeschneiderte Webauftritte für Handwerker und lokale Betriebe, automatisierte Python-Workflows zur Zeitersparnis und sichere Docker-Serverumgebungen.
       </p>
 
-      <p class="text-sm sm:text-base text-slate-400 mt-4 max-w-2xl leading-relaxed">
-        Ich bin 15 Jahre alt und entwickle maßgeschneiderte Webanwendungen mit JavaScript & HTML5, Python-Dienste für Datenverarbeitung und Bots sowie gehärtete Linux- und Docker-Infrastrukturen. Schnelle Umsetzung ohne Agentur-Bürokratie.
-      </p>
-
-      <div class="mt-6 flex flex-wrap gap-4 text-xs font-mono text-slate-300">
-        <div><span class="text-slate-500">E-Mail:</span> <a href="mailto:phil.bruell@gmail.com" class="text-sky-400 underline hover:text-sky-300">phil.bruell@gmail.com</a></div>
-        <div><span class="text-slate-500">GitHub:</span> <a href="https://github.com/Phil12992" target="_blank" class="text-sky-400 underline hover:text-sky-300">github.com/Phil12992</a></div>
-        <div><span class="text-slate-500">Hosting:</span> <span class="text-slate-200">GitHub Pages / Proxmox VE</span></div>
-      </div>
-    </section>
-
-    <!-- REAL PROJECTS SECTION (Directly Integrated) -->
-    <section id="projekte" class="py-14 border-b border-panelBorder">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-2">
-        <div>
-          <span class="font-mono text-xs text-sky-400 font-semibold tracking-wider uppercase">01 / Quellcode & Demos</span>
-          <h2 class="text-2xl font-bold text-white mt-1">Echte Projekte aus meinen Repositories</h2>
-        </div>
-        <p class="text-xs font-mono text-slate-400">Alle Projekte enthalten echten Quellcode und Live-Demos.</p>
+      <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <a href="#kontakt" class="px-6 py-3 rounded-lg text-sm font-bold text-white bg-sky-600 hover:bg-sky-500 transition text-center shadow-sm">
+          Unverbindlich anfragen (Festpreis)
+        </a>
+        <a href="#leistungen" class="px-6 py-3 rounded-lg text-sm font-semibold text-slate-300 bg-[#0b101d] hover:bg-[#111728] border border-[#1a233a] transition text-center">
+          Leistungen & Angebote ansehen
+        </a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-        <!-- Project 1: Digitaler Führerschein -->
-        <div class="project-card p-5 rounded-lg flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="text-emerald-400 bg-emerald-950/60 border border-emerald-800/80 px-2 py-0.5 rounded">Live im Einsatz</span>
-              <span class="text-slate-500">Gymnasiale Oberstufe</span>
-            </div>
-            <h3 class="text-lg font-bold text-white">Digitaler Führerschein (Amy Johnson Gymnasium)</h3>
-            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-              Vollständige interaktive Webanwendung zur Schulung und Freigabe digitaler Endgeräte (Windows 11 Laptops, Apple iPads & Samsung Galaxy Tabs). Beinhaltet modulare Checklisten, interaktive Wissens-Quizze und automatische Zertifikats-Generierung.
-            </p>
-            <div class="mt-4 flex flex-wrap gap-1.5">
-              <span class="tag">JavaScript (ES6+)</span>
-              <span class="tag">HTML5 / CSS3</span>
-              <span class="tag">Quiz Engine</span>
-              <span class="tag">Barrierefrei</span>
-            </div>
-          </div>
-          <div class="mt-5 pt-3 border-t border-panelBorder flex items-center justify-between text-xs font-mono">
-            <a href="https://phil12992.github.io/DigitalerFuehrerschein/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 font-semibold flex items-center gap-1">
-              Live Demo öffnen &nearr;
-            </a>
-            <a href="https://github.com/Phil12992/DigitalerFuehrerschein" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white">
-              GitHub Repo &rarr;
-            </a>
-          </div>
+      <!-- Key Business Facts -->
+      <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-[#1a233a] font-mono text-xs">
+        <div class="p-3 rounded-lg bg-[#0b101d] border border-[#1a233a]">
+          <div class="text-slate-400">Zielgruppe</div>
+          <div class="text-white font-bold mt-1">KMU & Handwerker</div>
         </div>
-
-        <!-- Project 2: Pushup Tracker -->
-        <div class="project-card p-5 rounded-lg flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="text-sky-400 bg-sky-950/60 border border-sky-800/80 px-2 py-0.5 rounded">Web App</span>
-              <span class="text-slate-500">Camera & Streak</span>
-            </div>
-            <h3 class="text-lg font-bold text-white">Daily Push-Up Tracker</h3>
-            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-              Fitness- und Gewohnheits-Tracker mit integrierter Webcam-Erkennung, Wiederholungszähler, Streak-Tracking und lokal persistentem Trainingsverlauf ohne externe Datenspeicherung.
-            </p>
-            <div class="mt-4 flex flex-wrap gap-1.5">
-              <span class="tag">JavaScript</span>
-              <span class="tag">MediaDevices API</span>
-              <span class="tag">HTML5 Canvas</span>
-              <span class="tag">LocalStorage</span>
-            </div>
-          </div>
-          <div class="mt-5 pt-3 border-t border-panelBorder flex items-center justify-between text-xs font-mono">
-            <a href="https://phil12992.github.io/pushup-tracker/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 font-semibold flex items-center gap-1">
-              Live Demo öffnen &nearr;
-            </a>
-            <a href="https://github.com/Phil12992/pushup-tracker" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white">
-              GitHub Repo &rarr;
-            </a>
-          </div>
+        <div class="p-3 rounded-lg bg-[#0b101d] border border-[#1a233a]">
+          <div class="text-slate-400">Preismodell</div>
+          <div class="text-white font-bold mt-1">Feste Paketpreise</div>
         </div>
-
-        <!-- Project 3: Döner Rating App -->
-        <div class="project-card p-5 rounded-lg flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="text-yellow-400 bg-yellow-950/60 border border-yellow-800/80 px-2 py-0.5 rounded">Web App</span>
-              <span class="text-slate-500">Rating Platform</span>
-            </div>
-            <h3 class="text-lg font-bold text-white">Döner Rating Webseite</h3>
-            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-              Responsive Web-Plattform zur Erfassung, Filterung und Bewertung von Gastronomie-Angeboten mit individuellem Scoring-System und responsivem Karten-Layout.
-            </p>
-            <div class="mt-4 flex flex-wrap gap-1.5">
-              <span class="tag">HTML5 / CSS3</span>
-              <span class="tag">Client-side Filter</span>
-              <span class="tag">Score Matrix</span>
-              <span class="tag">Mobile-First</span>
-            </div>
-          </div>
-          <div class="mt-5 pt-3 border-t border-panelBorder flex items-center justify-between text-xs font-mono">
-            <a href="https://phil12992.github.io/doener-rating/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 font-semibold flex items-center gap-1">
-              Live Demo öffnen &nearr;
-            </a>
-            <a href="https://github.com/Phil12992/doener-rating" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white">
-              GitHub Repo &rarr;
-            </a>
-          </div>
+        <div class="p-3 rounded-lg bg-[#0b101d] border border-[#1a233a]">
+          <div class="text-slate-400">Rechtssicher</div>
+          <div class="text-emerald-400 font-bold mt-1">100% DSGVO / 0 Cookies</div>
         </div>
-
-        <!-- Project 4: Handwerker-Webseite Markus Hennig -->
-        <div class="project-card p-5 rounded-lg flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="text-indigo-400 bg-indigo-950/60 border border-indigo-800/80 px-2 py-0.5 rounded">Unternehmensseite</span>
-              <span class="text-slate-500">Lokal Eichwalde</span>
-            </div>
-            <h3 class="text-lg font-bold text-white">Handwerker-Webseite (Markus Hennig, Eichwalde)</h3>
-            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-              Kompakte, moderne Firmenwebseite für einen lokalen Handwerksbetrieb aus Eichwalde. Fokus auf schnelle Erreichbarkeit, Mobil-Darstellung und klare Leistungsübersicht.
-            </p>
-            <div class="mt-4 flex flex-wrap gap-1.5">
-              <span class="tag">HTML5</span>
-              <span class="tag">Responsive CSS</span>
-              <span class="tag">SEO Basics</span>
-              <span class="tag">DSGVO-konform</span>
-            </div>
-          </div>
-          <div class="mt-5 pt-3 border-t border-panelBorder flex items-center justify-between text-xs font-mono">
-            <span class="text-slate-500 font-mono">Lokal-Projekt</span>
-            <a href="https://github.com/Phil12992/Webseiten/tree/main/Markus_Hennig_Eichwalde" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white">
-              GitHub Code &rarr;
-            </a>
-          </div>
-        </div>
-
-        <!-- Project 5: JARVIS Homelab Agent -->
-        <div class="project-card p-5 rounded-lg flex flex-col justify-between md:col-span-2">
-          <div>
-            <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="text-purple-400 bg-purple-950/60 border border-purple-800/80 px-2 py-0.5 rounded">Python / Backend</span>
-              <span class="text-slate-500">Proxmox Homelab</span>
-            </div>
-            <h3 class="text-lg font-bold text-white">JARVIS &middot; Persönlicher Homelab KI-Agent</h3>
-            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-              Autonomes Multi-Agenten-System in Python auf Proxmox VE (LXC-Container & Docker). Ausgestattet mit Telegram Bot Interface, asynchroner Aufgabenverwaltung, Werkzeugen für Server-Monitoring, MT5-Trading-Anbindung und Desktop-Steuerung.
-            </p>
-            <div class="mt-4 flex flex-wrap gap-1.5">
-              <span class="tag">Python 3</span>
-              <span class="tag">AsyncIO</span>
-              <span class="tag">Docker Compose</span>
-              <span class="tag">Proxmox VE</span>
-              <span class="tag">Telegram API</span>
-              <span class="tag">SQLite Memory</span>
-            </div>
-          </div>
-          <div class="mt-5 pt-3 border-t border-panelBorder flex items-center justify-between text-xs font-mono">
-            <span class="text-slate-400">Läuft produktiv auf Homelab Server (192.168.178.32)</span>
-            <a href="https://github.com/Phil12992/oldjarvis" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white">
-              Architektur im Repo ansehen &rarr;
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SERVICES & PRICING -->
-    <section id="leistungen" class="py-14 border-b border-panelBorder">
-      <div class="mb-8">
-        <span class="font-mono text-xs text-sky-400 font-semibold tracking-wider uppercase">02 / Was ich anbiete</span>
-        <h2 class="text-2xl font-bold text-white mt-1">Dienstleistungen & faire Festpreise</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="p-5 rounded-lg bg-[#0f1219] border border-panelBorder">
-          <span class="font-mono text-xs text-sky-400 font-semibold">Webseiten & Landingpages</span>
-          <h3 class="text-base font-bold text-white mt-1">Handwerker & Betriebe</h3>
-          <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-            Moderne, schnelle Firmenwebseiten für lokale Selbstständige. 100% mobil-optimiert, keine monatlichen Wartungsfallen.
-          </p>
-          <ul class="mt-4 space-y-1.5 text-xs text-slate-300 font-mono">
-            <li>+ Individuelles Design</li>
-            <li>+ Impressum & Datenschutz</li>
-            <li>+ Keine Cookies erforderlich</li>
-          </ul>
-        </div>
-
-        <div class="p-5 rounded-lg bg-[#0f1219] border border-panelBorder">
-          <span class="font-mono text-xs text-emerald-400 font-semibold">Python Automatisierung</span>
-          <h3 class="text-base font-bold text-white mt-1">Skripte & Web-Scraping</h3>
-          <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-            Automatisierter Abruf von Daten, Abgleich von Excel-Listen, PDF-Erzeugung oder periodische Berichte.
-          </p>
-          <ul class="mt-4 space-y-1.5 text-xs text-slate-300 font-mono">
-            <li>+ Web Scraping mit Playwright</li>
-            <li>+ CSV / Excel Pipeline</li>
-            <li>+ Cron & 24/7 Hintergrund</li>
-          </ul>
-        </div>
-
-        <div class="p-5 rounded-lg bg-[#0f1219] border border-panelBorder">
-          <span class="font-mono text-xs text-indigo-400 font-semibold">Bots & Server</span>
-          <h3 class="text-base font-bold text-white mt-1">Telegram / Discord & Docker</h3>
-          <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-            Benachrichtigungs-Bots bei Alarmen oder Kundenaufträgen, sowie sicheres Einrichten von Linux-Servern mit Docker.
-          </p>
-          <ul class="mt-4 space-y-1.5 text-xs text-slate-300 font-mono">
-            <li>+ Telegram Webhook Bot</li>
-            <li>+ Nginx Reverse Proxy (SSL)</li>
-            <li>+ Docker Compose Deployment</li>
-          </ul>
+        <div class="p-3 rounded-lg bg-[#0b101d] border border-[#1a233a]">
+          <div class="text-slate-400">Direktkontakt</div>
+          <div class="text-white font-bold mt-1 truncate">phil.bruell@gmail.com</div>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT PHILIPP BRÜLL -->
-    <section id="profil" class="py-14 border-b border-panelBorder">
+    <!-- SECTION 1: DIE 3 KERN-LEISTUNGEN (B2B) -->
+    <section id="leistungen" class="py-14 border-b border-[#1a233a]">
+      <div class="mb-10">
+        <span class="font-mono text-xs text-sky-400 font-semibold tracking-wider uppercase">01 / Kernkompetenzen</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Was ich für dein Unternehmen umsetze</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2 max-w-2xl">
+          Fokussierte IT- und Entwicklungs-Dienstleistungen. Keine unnötigen Framework-Schichten, sondern messbare Ergebnisse.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- Service 1 -->
+        <div class="b2b-card p-6 rounded-xl flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-sky-950/80 border border-sky-800 text-sky-400 flex items-center justify-center mb-5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            </div>
+            <span class="text-xs font-mono text-sky-400 font-semibold uppercase">Angebot 1</span>
+            <h3 class="text-lg font-bold text-white mt-1">Unternehmens-Websites</h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Moderne, schlanke Webauftritte für lokale Betriebe, Handwerker und Freiberufler. 100% mobil-optimiert, extrem schnelle Ladezeiten (&lt;200ms) und DSGVO-konform ohne lästige Cookie-Banner.
+            </p>
+            <ul class="mt-4 space-y-1.5 text-xs text-slate-400 font-mono">
+              <li class="flex items-center gap-1.5"><span class="text-emerald-400">&check;</span> Mobile-First HTML5 & Tailwind</li>
+              <li class="flex items-center gap-1.5"><span class="text-emerald-400">&check;</span> Impressum & Datenschutz integriert</li>
+              <li class="flex items-center gap-1.5"><span class="text-emerald-400">&check;</span> Keine monatlichen Baukasten-Kosten</li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-[#1a233a]">
+            <a href="#kontakt" class="text-xs font-mono text-sky-400 hover:text-sky-300 font-semibold flex items-center gap-1">
+              Website anfragen &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="b2b-card p-6 rounded-xl flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-emerald-950/80 border border-emerald-800 text-emerald-400 flex items-center justify-center mb-5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <span class="text-xs font-mono text-emerald-400 font-semibold uppercase">Angebot 2</span>
+            <h3 class="text-lg font-bold text-white mt-1">Prozess-Automatisierung</h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Wiederkehrende manuelle Klicks und Tabellen-Arbeiten automatisieren: Web-Scraping zur Preiserfassung, Abgleich von CSV/Excel-Dateien, automatische PDF-Erzeugung und E-Mail-Berichte.
+            </p>
+            <ul class="mt-4 space-y-1.5 text-xs text-slate-400 font-mono">
+              <li class="flex items-center gap-1.5"><span class="text-emerald-400">&check;</span> Python 3 & AsyncIO Pipelines</li>
+              <li class="flex items-center gap-1.5"><span class="text-emerald-400">&check;</span> Web Scraping (Playwright/httpx)</li>
+              <li class="flex items-center gap-1.5"><span class="text-emerald-400">&check;</span> 24/7 Hintergrund-Betrieb</li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-[#1a233a]">
+            <a href="#kontakt" class="text-xs font-mono text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1">
+              Automatisierung anfragen &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="b2b-card p-6 rounded-xl flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-lg bg-indigo-950/80 border border-indigo-800 text-indigo-400 flex items-center justify-center mb-5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>
+            </div>
+            <span class="text-xs font-mono text-indigo-400 font-semibold uppercase">Angebot 3</span>
+            <h3 class="text-lg font-bold text-white mt-1">IT-Systeme & Docker Setup</h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Sichere Bereitstellung von Servern und Diensten (Linux, Docker, Proxmox VE): Nginx Reverse Proxy mit SSL-Verschlüsselung, Rate-Limiting, automatisierte Backups und Bots (Telegram/Discord).
+            </p>
+            <ul class="mt-4 space-y-1.5 text-xs text-slate-400 font-mono">
+              <li class="flex items-center gap-1.5"><span class="text-emerald-400">&check;</span> Docker Compose Orchestrierung</li>
+              <li class="flex items-center gap-1.5"><span class="text-emerald-400">&check;</span> Gehärteter Nginx Proxy & SSL</li>
+              <li class="flex items-center gap-1.5"><span class="text-emerald-400">&check;</span> Telegram & Discord Alerting</li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-[#1a233a]">
+            <a href="#kontakt" class="text-xs font-mono text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1">
+              Server-Setup anfragen &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ECHTE B2B REFERENZEN & CASE STUDIES -->
+    <section id="projekte" class="py-14 border-b border-[#1a233a]">
+      <div class="mb-10">
+        <span class="font-mono text-xs text-sky-400 font-semibold tracking-wider uppercase">02 / Referenzen & Case Studies</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Echte Umsetzungen & technischer Code</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2 max-w-2xl">
+          Hier siehst du, wie ich Probleme in funktionierenden Code und produktive Setups verwandle.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+
+        <!-- Case Study 1 -->
+        <div class="b2b-card p-6 sm:p-7 rounded-xl">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#1a233a] pb-4 mb-5">
+            <div>
+              <span class="tag text-sky-400">Case Study 1: Web-Entwicklung</span>
+              <h3 class="text-xl font-bold text-white mt-2">Firmen-Webauftritt für lokale Betriebe (Handwerker / Dienstleister)</h3>
+              <p class="text-xs font-mono text-slate-400 mt-0.5">Projektbeispiel: Markus Hennig, Eichwalde &middot; projects/website-builder</p>
+            </div>
+            <a href="https://github.com/Phil12992/freelance-portfolio/tree/main/projects/website-builder" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-sky-400 hover:underline flex items-center gap-1">
+              Quellcode im Repo &nearr;
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs">
+            <div class="bg-[#070b14] p-4 rounded-lg border border-[#1a233a]">
+              <span class="font-mono text-slate-400 font-semibold block mb-1">Problemstellung</span>
+              <p class="text-slate-300 leading-relaxed">
+                Veraltete Firmenwebseiten sind oft langsam, nicht auf Handys bedienbar und erfordern teure Baukasten-Abos mit Abmahnrisiken durch US-Cookies.
+              </p>
+            </div>
+            <div class="bg-[#070b14] p-4 rounded-lg border border-[#1a233a]">
+              <span class="font-mono text-emerald-400 font-semibold block mb-1">Technische Lösung</span>
+              <p class="text-slate-300 leading-relaxed">
+                Schlanke, statische Website in HTML5 & TailwindCSS. Ladezeit unter 200ms, Google PageSpeed 98+, vollständige DSGVO-Konformität (0 Cookies, kein Tracking).
+              </p>
+            </div>
+            <div class="bg-[#070b14] p-4 rounded-lg border border-[#1a233a]">
+              <span class="font-mono text-sky-400 font-semibold block mb-1">Ergebnis für den Kunden</span>
+              <p class="text-slate-300 leading-relaxed">
+                Professionelle Visitenkarte für Kundenanfragen, reibungsloser Direktkontakt per Mail/Telefon, null monatliche Plattform-Gebühren.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 2 -->
+        <div class="b2b-card p-6 sm:p-7 rounded-xl">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#1a233a] pb-4 mb-5">
+            <div>
+              <span class="tag text-emerald-400">Case Study 2: Automatisierung</span>
+              <h3 class="text-xl font-bold text-white mt-2">24/7 Asynchroner Monitoring- & Alarmierungs-Bot</h3>
+              <p class="text-xs font-mono text-slate-400 mt-0.5">Code im Repo: projects/automation-bot/monitor_bot.py</p>
+            </div>
+            <a href="https://github.com/Phil12992/freelance-portfolio/tree/main/projects/automation-bot" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-emerald-400 hover:underline flex items-center gap-1">
+              Quellcode im Repo &nearr;
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs">
+            <div class="bg-[#070b14] p-4 rounded-lg border border-[#1a233a]">
+              <span class="font-mono text-slate-400 font-semibold block mb-1">Problemstellung</span>
+              <p class="text-slate-300 leading-relaxed">
+                Regelmäßige manuelle Kontrollen von Partner-Schnittstellen, Webseiten oder Preisen binden wöchentlich wertvolle Arbeitszeit und sind fehleranfällig.
+              </p>
+            </div>
+            <div class="bg-[#070b14] p-4 rounded-lg border border-[#1a233a]">
+              <span class="font-mono text-emerald-400 font-semibold block mb-1">Technische Lösung</span>
+              <p class="text-slate-300 leading-relaxed">
+                Asynchroner Python-Dienst mit `httpx` und `asyncio`. Erkennt Ausfälle, Latenzspitzen oder Inhaltsänderungen und versendet formatierte Telegram-Alerts.
+              </p>
+            </div>
+            <div class="bg-[#070b14] p-4 rounded-lg border border-[#1a233a]">
+              <span class="font-mono text-sky-400 font-semibold block mb-1">Ergebnis für den Kunden</span>
+              <p class="text-slate-300 leading-relaxed">
+                Vollautomatische Überwachung rund um die Uhr. Sofortige Alarmierung aufs Smartphone ohne manuelle Kontrollschritte.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Study 3 -->
+        <div class="b2b-card p-6 sm:p-7 rounded-xl">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#1a233a] pb-4 mb-5">
+            <div>
+              <span class="tag text-indigo-400">Case Study 3: IT-Infrastruktur</span>
+              <h3 class="text-xl font-bold text-white mt-2">Gehärtete Docker- & Nginx-Serverumgebung</h3>
+              <p class="text-xs font-mono text-slate-400 mt-0.5">Code im Repo: projects/homelab-docker/docker-compose.yml & nginx.conf</p>
+            </div>
+            <a href="https://github.com/Phil12992/freelance-portfolio/tree/main/projects/homelab-docker" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-indigo-400 hover:underline flex items-center gap-1">
+              Quellcode im Repo &nearr;
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs">
+            <div class="bg-[#070b14] p-4 rounded-lg border border-[#1a233a]">
+              <span class="font-mono text-slate-400 font-semibold block mb-1">Problemstellung</span>
+              <p class="text-slate-300 leading-relaxed">
+                Offene Ports, fehlendes Rate-Limiting und unstrukturierte Serverinstallationen führen zu Sicherheitslücken und ungeplanten Ausfallzeiten.
+              </p>
+            </div>
+            <div class="bg-[#070b14] p-4 rounded-lg border border-[#1a233a]">
+              <span class="font-mono text-emerald-400 font-semibold block mb-1">Technische Lösung</span>
+              <p class="text-slate-300 leading-relaxed">
+                Containerisierter Docker-Stack mit gehärteter Nginx-Konfiguration: HSTS, X-Frame-Options, Content-Security-Policy, Memory-basiertes Rate-Limiting.
+              </p>
+            </div>
+            <div class="bg-[#070b14] p-4 rounded-lg border border-[#1a233a]">
+              <span class="font-mono text-sky-400 font-semibold block mb-1">Ergebnis für den Kunden</span>
+              <p class="text-slate-300 leading-relaxed">
+                Stabiler, wartungsarmer Serverbetrieb mit automatischer Wiederherstellung und Schutz vor Überlastung.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: DER 4-SCHRITTE ABLAUF -->
+    <section id="ablauf" class="py-14 border-b border-[#1a233a]">
+      <div class="mb-10">
+        <span class="font-mono text-xs text-sky-400 font-semibold tracking-wider uppercase">03 / Projekt-Ablauf</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">So einfach läuft die Zusammenarbeit</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="p-5 rounded-lg bg-[#0b101d] border border-[#1a233a]">
+          <div class="text-xs font-mono font-bold text-sky-400">Schritt 01</div>
+          <h4 class="text-base font-bold text-white mt-1">Anforderungsanalyse</h4>
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+            Du schreibst mir kurz die gewünschten Funktionen, das Ziel und den Zeitrahmen per E-Mail.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-lg bg-[#0b101d] border border-[#1a233a]">
+          <div class="text-xs font-mono font-bold text-sky-400">Schritt 02</div>
+          <h4 class="text-base font-bold text-white mt-1">Verbindlicher Festpreis</h4>
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+            Keine versteckten Stundensätze. Du erhältst ein klares Paketangebot mit fester Deadline.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-lg bg-[#0b101d] border border-[#1a233a]">
+          <div class="text-xs font-mono font-bold text-sky-400">Schritt 03</div>
+          <h4 class="text-base font-bold text-white mt-1">Entwicklung & Demo</h4>
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+            Rasche Programmierung mit Zwischenstand auf einer Test-Domain zur gemeinsamen Abstimmung.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-lg bg-[#0b101d] border border-[#1a233a]">
+          <div class="text-xs font-mono font-bold text-emerald-400">Schritt 04</div>
+          <h4 class="text-base font-bold text-white mt-1">Übergabe & Go-Live</h4>
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+            Bereitstellung des vollständigen Quellcodes oder direktes Deployment auf deinen Server/Domain.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: ÜBER PHILIPP BRÜLL -->
+    <section id="profil" class="py-14 border-b border-[#1a233a]">
       <div class="mb-6">
-        <span class="font-mono text-xs text-sky-400 font-semibold tracking-wider uppercase">03 / Person</span>
+        <span class="font-mono text-xs text-sky-400 font-semibold tracking-wider uppercase">04 / Entwickler-Profil</span>
         <h2 class="text-2xl font-bold text-white mt-1">Über mich</h2>
       </div>
 
-      <div class="p-6 rounded-lg bg-[#0f1219] border border-panelBorder text-sm text-slate-300 leading-relaxed space-y-3">
+      <div class="p-6 rounded-lg bg-[#0b101d] border border-[#1a233a] text-sm text-slate-300 leading-relaxed space-y-3">
         <p>
-          Mein Name ist <strong class="text-white">Philipp Brüll</strong>, ich bin 15 Jahre alt und lebe in Eichwalde bei Berlin.
+          Mein Name ist <strong class="text-white">Philipp Brüll</strong>, 15 Jahre alt aus Eichwalde bei Berlin.
         </p>
         <p>
-          Seit mehreren Jahren programmiere ich eigene Webanwendungen und Skripte. Neben Frontend-Entwicklung mit modernem JavaScript und CSS baue ich Backend-Lösungen in Python und betreibe mein eigenes Proxmox-Homelab mit Docker-Containern.
+          Ich habe mich darauf spezialisiert, praxisnahe Softwarelösungen für Unternehmen und Selbstständige zu entwickeln. Während große Agenturen oft monatelange Abstimmungen und teure Framework-Monster verkaufen, baue ich direkte, performante Webseiten und Automatisierungen, die genau das tun, was sie sollen.
         </p>
         <p class="text-xs font-mono text-slate-400 pt-2">
-          Tech-Stack: JavaScript (ES6+), HTML5, CSS3/Tailwind, Python 3, AsyncIO, Docker, Linux (Debian/Ubuntu), Git/GitHub.
+          Verfügbar für Projekte über Direktkontakt, <strong>eBay Kleinanzeigen</strong>, <strong>Fiverr</strong> und <strong>Upwork</strong>.
         </p>
       </div>
     </section>
 
-    <!-- CONTACT FORM & EMAIL -->
+    <!-- SECTION 5: KONTAKTFORMULAR & E-MAIL -->
     <section id="kontakt" class="py-14">
       <div class="mb-6">
-        <span class="font-mono text-xs text-sky-400 font-semibold tracking-wider uppercase">04 / Kontakt</span>
-        <h2 class="text-2xl font-bold text-white mt-1">Projekt anfragen</h2>
-        <p class="text-xs text-slate-400 mt-1">Antwort meist innerhalb von 24 Stunden.</p>
+        <span class="font-mono text-xs text-sky-400 font-semibold tracking-wider uppercase">05 / Direktkontakt</span>
+        <h2 class="text-2xl font-bold text-white mt-1">Projekt unverbindlich anfragen</h2>
+        <p class="text-xs text-slate-400 mt-1">Antwort garantiert innerhalb von 24 Stunden.</p>
       </div>
 
-      <div class="p-6 rounded-lg bg-[#0f1219] border border-panelBorder">
-        <div class="mb-6 pb-6 border-b border-panelBorder flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
+      <div class="p-6 rounded-lg bg-[#0b101d] border border-[#1a233a]">
+        <div class="mb-6 pb-6 border-b border-[#1a233a] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
           <div>
             <span class="text-slate-500">Direkte E-Mail:</span>
             <a href="mailto:phil.bruell@gmail.com" class="text-sky-400 font-bold ml-1 hover:underline">phil.bruell@gmail.com</a>
@@ -372,34 +443,34 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label for="c_name" class="block font-mono text-slate-300 mb-1">Name / Firma *</label>
-              <input type="text" id="c_name" required maxlength="100" placeholder="Max Mustermann" class="w-full px-3 py-2 rounded bg-[#08090d] border border-panelBorder text-white text-xs focus:border-sky-500 focus:outline-none">
+              <input type="text" id="c_name" required maxlength="100" placeholder="Max Mustermann" class="w-full px-3.5 py-2.5 rounded-lg bg-[#070b14] border border-[#1a233a] text-white text-xs focus:border-sky-500 focus:outline-none">
             </div>
             <div>
-              <label for="c_type" class="block font-mono text-slate-300 mb-1">Projektbereich *</label>
-              <select id="c_type" class="w-full px-3 py-2 rounded bg-[#08090d] border border-panelBorder text-white text-xs focus:border-sky-500 focus:outline-none">
-                <option value="Webseite">Webseite / Landing Page</option>
-                <option value="Python Automatisierung">Python Skript / Web-Scraping</option>
-                <option value="Bot Entwicklung">Telegram / Discord Bot</option>
-                <option value="Server Setup">Linux / Docker Server</option>
-                <option value="Sonstiges">Sonstiges</option>
+              <label for="c_type" class="block font-mono text-slate-300 mb-1">Leistungsbereich *</label>
+              <select id="c_type" class="w-full px-3.5 py-2.5 rounded-lg bg-[#070b14] border border-[#1a233a] text-white text-xs focus:border-sky-500 focus:outline-none">
+                <option value="Unternehmens-Website">Unternehmens-Website (Handwerker / Betrieb)</option>
+                <option value="Prozess-Automatisierung">Prozess-Automatisierung / Web-Scraping</option>
+                <option value="IT-Systeme & Docker">IT-Systeme, Docker & Bots</option>
+                <option value="Sonstiges">Sonstiges Vorhaben</option>
               </select>
             </div>
           </div>
 
           <div>
-            <label for="c_msg" class="block font-mono text-slate-300 mb-1">Beschreibung des Auftrags *</label>
-            <textarea id="c_msg" required rows="4" maxlength="1500" placeholder="Worum geht es genau? Welche Anforderungen oder Deadlines gibt es?" class="w-full px-3 py-2 rounded bg-[#08090d] border border-panelBorder text-white text-xs focus:border-sky-500 focus:outline-none"></textarea>
+            <label for="c_msg" class="block font-mono text-slate-300 mb-1">Projektbeschreibung *</label>
+            <textarea id="c_msg" required rows="4" maxlength="1500" placeholder="Worum geht es genau? Welche Wünsche, Anforderungen oder Deadlines gibt es?" class="w-full px-3.5 py-2.5 rounded-lg bg-[#070b14] border border-[#1a233a] text-white text-xs focus:border-sky-500 focus:outline-none"></textarea>
           </div>
 
           <div class="flex items-start gap-2">
-            <input type="checkbox" id="c_consent" required class="mt-0.5 rounded bg-[#08090d] border-panelBorder text-sky-600 focus:ring-0">
+            <input type="checkbox" id="c_consent" required class="mt-0.5 rounded bg-[#070b14] border-[#1a233a] text-sky-600 focus:ring-0">
             <label for="c_consent" class="text-[11px] text-slate-400 leading-normal">
-              Ich willige ein, dass meine Angaben zur Kontaktaufnahme per Mail verwendet werden. Weitere Hinweise in der <a href="datenschutz.html" class="text-sky-400 underline">Datenschutzerklärung</a>.
+              Ich willige ein, dass meine Angaben zur Bearbeitung meiner Anfrage per E-Mail an phil.bruell@gmail.com übermittelt werden. Weitere Details in der <a href="datenschutz.html" class="text-sky-400 underline">Datenschutzerklärung</a>.
             </label>
           </div>
 
-          <button type="submit" class="px-5 py-2.5 rounded bg-sky-600 hover:bg-sky-500 text-white font-semibold text-xs transition cursor-pointer">
-            E-Mail Entwurf generieren & absenden
+          <button type="submit" class="px-5 py-2.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-semibold text-xs transition cursor-pointer flex items-center gap-1.5">
+            <span>E-Mail Entwurf generieren & absenden</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </button>
 
           <div id="c_feedback" class="hidden text-xs text-emerald-400 font-mono pt-2"></div>
@@ -410,10 +481,10 @@
   </main>
 
   <!-- Legal Footer -->
-  <footer class="border-t border-panelBorder py-8 bg-[#08090d] text-xs font-mono text-slate-500">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+  <footer class="border-t border-[#1a233a] py-8 bg-[#070b14] text-xs font-mono text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
       <div>
-        <span class="text-slate-300 font-bold">&copy; 2026 Philipp Brüll</span> &middot; Eichwalde bei Berlin
+        <span class="text-slate-300 font-bold">&copy; 2026 Philipp Brüll</span> &middot; B2B Web-Entwicklung & IT-Lösungen
       </div>
       <div class="flex items-center gap-5">
         <a href="impressum.html" class="hover:text-white underline">Impressum</a>
